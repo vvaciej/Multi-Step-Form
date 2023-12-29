@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+html {
+  height: 100%;
+  background-color: hsl(217, 100%, 97%);
+  font-family: "Ubuntu", sans-serif;
+}
+html button {
+  cursor: pointer;
+  font-family: "Ubuntu", sans-serif;
+}
+html button:hover {
+  outline: 0;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: hsl(0, 0%, 100%);
+  height: 40rem;
+  width: 62rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  padding: 16px;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.05);
+  display: flex;
+}
+.container .container-sidebar {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  height: 100%;
+  background-image: url("/image/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 293px;
+  padding: 20px 35px;
+  filter: brightness(110%);
+}
+.container .container-sidebar .aside-step-section {
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+.container .container-sidebar .aside-step-section .step-form-number {
+  width: -moz-max-content;
+  width: max-content;
+  color: hsl(0, 0%, 100%);
+  font-size: 18px;
+  height: 37px;
+  width: 37px;
+  border-radius: 50%;
+  border: 1.5px solid hsl(0, 0%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .container-sidebar .aside-step-section .step-form-number.active {
+  background-color: hsl(206, 94%, 87%);
+  border: 0;
+  color: hsl(213, 96%, 18%);
+}
+.container .container-sidebar .aside-step-section .aside-form-text-section {
+  margin-left: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+}
+.container .container-sidebar .aside-step-section .aside-form-text-section .step-form-text {
+  color: hsl(231, 11%, 63%);
+  font-size: 18px;
+  font-weight: 500;
+  font-size: 13.5px;
+}
+.container .container-sidebar .aside-step-section .aside-form-text-section .aside-form-text {
+  font-size: 14.5px;
+  color: hsl(0, 0%, 100%);
+}
+.container .container-main {
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+  margin-left: 100px;
+  height: 100%;
+  padding: 40px 0 20px 0px;
+  margin-right: 90px;
+}
+.container .container-main .step-heading-section {
+  margin-bottom: 40px;
+}
+.container .container-main .step-heading-section .step-heading-text {
+  font-size: 32px;
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.container .container-main .step-heading-section .step-under-heading-text {
+  color: hsl(231, 11%, 63%);
+  font-size: 16.5px;
+}
+.container .container-main .first-step-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 380px;
+}
+.container .container-main .first-step-div:not(.active) {
+  display: none;
+}
+.container .container-main .first-step-div .first-step-form-section form {
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+  justify-content: space-between;
+}
+.container .container-main .first-step-div .first-step-form-section form .first-step-input-section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+.container .container-main .first-step-div .first-step-form-section form .first-step-input-section .first-step-input-label {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.container .container-main .first-step-div .first-step-form-section form .first-step-input-section .first-step-input-label .first-step-label-text {
+  color: hsl(213, 96%, 18%);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.container .container-main .first-step-div .first-step-form-section form .first-step-input-section .first-step-input-label .first-step-error-text {
+  color: hsl(354, 84%, 57%);
+  font-size: 14px;
+  font-weight: 700;
+  visibility: hidden;
+}
+.container .container-main .first-step-div .first-step-form-section form .first-step-input-section .first-step-input-label .first-step-error-text.error {
+  visibility: visible;
+}
+.container .container-main .first-step-div .first-step-form-section form .first-step-input-section .first-step-input {
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid hsl(229, 24%, 87%);
+  padding: 0 16px;
+  font-size: 16px;
+  color: hsl(213, 96%, 18%);
+  font-weight: 600;
+}
+.container .container-main .first-step-div .first-step-form-section form .first-step-input-section .first-step-input:focus {
+  outline: 0;
+  border: 1px solid hsl(243, 100%, 62%);
+}
+.container .container-main .first-step-div .first-step-form-section form .first-step-input-section .first-step-input::-moz-placeholder {
+  color: hsl(231, 11%, 63%);
+  font-weight: 500;
+}
+.container .container-main .first-step-div .first-step-form-section form .first-step-input-section .first-step-input::placeholder {
+  color: hsl(231, 11%, 63%);
+  font-weight: 500;
+}
+.container .container-main .first-step-div .first-step-form-section form .first-step-input-section .first-step-input.error {
+  border: 1px solid hsl(354, 84%, 57%);
+}
+.container .container-main .second-step-div:not(.active) {
+  display: none;
+}
+.container .container-main .second-step-div .second-step-plan-section {
+  width: 460px;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section {
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 18px;
+       column-gap: 18px;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 8px;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(213, 96%, 18%);
+  font-size: 17px;
+  font-weight: 600;
+  height: 165px;
+  width: 100%;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn:hover {
+  border: 1px solid hsl(243, 100%, 62%);
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn .second-step-plan-describe-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn .second-step-plan-describe-section .second-step-plan-level-text {
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn .second-step-plan-describe-section .second-step-plan-price-text {
+  font-size: 14px;
+  color: hsl(231, 11%, 63%);
+  font-weight: 500;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn.chosen {
+  border: 1px solid hsl(243, 100%, 62%);
+  background-color: #f6f6f6;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-toggle-section {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 35px;
+       column-gap: 35px;
+  width: 100%;
+  height: 45px;
+  border-radius: 8px;
+  background-color: hsl(231, 100%, 99%);
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-toggle-section .second-step-toggle-switch {
+  height: 22px;
+  width: 45px;
+  border-radius: 45px;
+  background-color: hsl(213, 96%, 18%);
+  position: relative;
+  cursor: pointer;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-toggle-section .second-step-toggle-switch:after {
+  content: "";
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: hsl(0, 0%, 100%);
+  top: 50%;
+  left: 3.5px;
+  transform: translate(0, -50%);
+  transition: 0.1s;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-toggle-section .second-step-toggle-switch:hover:after {
+  left: 7px;
+  transition: 0.1s;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-toggle-section .second-step-toggle-switch.switched::after {
+  left: 26.5px;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-toggle-section .second-step-toggle-text {
+  color: hsl(213, 96%, 18%);
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-toggle-section .second-step-toggle-text:not(.active) {
+  color: hsl(231, 11%, 63%);
+}
+.container .container-main .step-aside-btn-container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  width: 100%;
+}
+.container .container-main .step-aside-btn-container .step-aside-next-btn {
+  position: relative;
+  border: 0;
+  background-color: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  height: 48px;
+  width: 120px;
+  border-radius: 8px;
+}
+.container .container-main .step-aside-btn-container .step-aside-next-btn:hover {
+  filter: brightness(140%);
+  transform: translate(8px);
+}
+.container .container-main .step-aside-btn-container .step-aside-back-btn {
+  position: relative;
+  border: 0;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(213, 96%, 18%);
+  font-size: 16px;
+  width: -moz-max-content;
+  width: max-content;
+  font-weight: 600;
+  border-radius: 8px;
+}
+.container .container-main .step-aside-btn-container .step-aside-back-btn:not(.active) {
+  opacity: 0;
+  visibility: hidden;
+}/*# sourceMappingURL=style.css.map */

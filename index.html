@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="">
+  <script src="https://kit.fontawesome.com/b367f4fd12.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style/style.css">
+  <title>My app</title>
+</head>
+<body>
+  <div class="container">
+    <aside class="container-sidebar">
+      <section class="aside-step-section">
+        <h3 class="step-form-number active">1</h3>
+        <section class="aside-form-text-section">
+          <span class="step-form-text">step 1</span>
+          <h3 class="aside-form-text">your info</h3>
+        </section>
+      </section>
+      <section class="aside-step-section">
+        <h3 class="step-form-number">2</h3>
+        <section class="aside-form-text-section">
+          <span class="step-form-text">step 2</span>
+          <h3 class="aside-form-text">select plan</h3>
+        </section>
+      </section>
+      <section class="aside-step-section">
+        <h3 class="step-form-number">3</h3>
+        <section class="aside-form-text-section">
+          <span class="step-form-text">step 3</span>
+          <h3 class="aside-form-text">add-ons</h3>
+        </section>
+      </section>
+      <section class="aside-step-section">
+        <h3 class="step-form-number">4</h3>
+        <section class="aside-form-text-section">
+          <span class="step-form-text">step 4</span>
+          <h3 class="aside-form-text">summary</h3>
+        </section>
+      </section>
+    </aside>
+    <main class="container-main">
+      <div class="first-step-div">
+        <header class="step-heading-section">
+          <h1 class="step-heading-text">Personal info</h1>
+          <p class="step-under-heading-text">Please provide your name, email address, and phone number.</p>
+        </header>
+        <main class="first-step-form-section">
+          <form novalidate>
+            <section class="first-step-input-section">
+              <section class="first-step-input-label">
+                <label class="first-step-label-text" for="name">Name</label>
+                <span class="first-step-error-text">This field is required</span>
+              </section>
+              <input class="first-step-input" type="text" name="name" id="name" placeholder="e.g. John Smith" maxLength="24">
+            </section>
+            <section class="first-step-input-section">
+              <section class="first-step-input-label">
+                <label class="first-step-label-text" for="email">Email Address</label>
+                <span class="first-step-error-text">This field is required</span>
+              </section>
+              <input class="first-step-input" type="email" name="email" id="email" placeholder="e.g. email@gmail.com" maxLength="32">
+            </section>
+            <section class="first-step-input-section">
+              <section class="first-step-input-label">
+                <label class="first-step-label-text" for="phone">Phone Number</label>
+                <span class="first-step-error-text">This field is required</span>
+              </section>
+              <input class="first-step-input" type="tel" name="phone" id="phone" placeholder="e.g. 234 567 890" maxLength="16">
+            </section>
+          </form>
+        </main>
+      </div>
+      <div class="second-step-div active">
+        <header class="step-heading-section">
+          <h1 class="step-heading-text">Selected your plan</h1>
+          <p class="step-under-heading-text">You have the option of monthly of yearly billing.</p>
+        </header>
+        <main class="second-step-plan-section">
+          <section class="second-step-choose-plan-section">
+            <button class="second-step-choose-plan-btn chosen">
+              <img class="second-step-plan-icon" src="/image/icon-arcade.svg" alt="arcade-plan-icon">
+              <section class="second-step-plan-describe-section">
+                <h4 class="second-step-plan-level-text">Arcade</h4>
+                <span class="second-step-plan-price-text">$9/mo</span>
+              </section>
+            </button>
+            <button class="second-step-choose-plan-btn">
+              <img class="second-step-plan-icon" src="/image/icon-advanced.svg" alt="advanced-plan-icon">
+              <section class="second-step-plan-describe-section">
+                <h4 class="second-step-plan-level-text">Advanced</h4>
+                <span class="second-step-plan-price-text">$12/mo</span>
+              </section>
+            </button>
+            <button class="second-step-choose-plan-btn">
+              <img class="second-step-plan-icon" src="/image/icon-pro.svg" alt="pro-plan-icon">
+              <section class="second-step-plan-describe-section">
+                <h4 class="second-step-plan-level-text">Pro</h4>
+                <span class="second-step-plan-price-text">$15/mo</span>
+              </section>
+            </button>
+          </section>
+          <section class="second-step-toggle-section">
+            <span class="second-step-toggle-text active">Monthly</span>
+            <div class="second-step-toggle-switch"></div>
+            <span class="second-step-toggle-text">Yearly</span>
+          </section>
+        </main>
+      </div>
+      <aside class="step-aside-btn-container">
+        <button class="step-aside-back-btn">Go Back</button>
+        <button class="step-aside-next-btn">Next Step</button>
+      </aside>
+    </main>
+  </div>
+  <script src=""></script>
+</body>
+</html>
