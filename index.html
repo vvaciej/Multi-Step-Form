@@ -5,12 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta author="vvaciej">
-  <link rel="icon" href="">
+  <link rel="icon" href="/image/icon-thank-you.svg">
   <script src="https://kit.fontawesome.com/b367f4fd12.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style/style.css">
-  <title>My app</title>
+  <title>Multiform Project</title>
 </head>
 <body>
+  <div class="mobile-topside-container">
+    <ul class="mobile-topside-step-number-list">
+      <li class="step-form-number active">1</li>
+      <li class="step-form-number">2</li>
+      <li class="step-form-number">3</li>
+      <li class="step-form-number">4</li>
+    </ul>
+  </div>
   <div class="container">
     <aside class="container-sidebar">
       <section class="aside-step-section">
@@ -43,7 +51,7 @@
       </section>
     </aside>
     <main class="container-main">
-      <div class="first-step-div main-step-div">
+      <div class="first-step-div main-step-div active">
         <header class="step-heading-section">
           <h1 class="step-heading-text">Personal info</h1>
           <p class="step-under-heading-text">Please provide your name, email address, and phone number.</p>
@@ -51,21 +59,21 @@
         <main class="first-step-form-section">
           <form novalidate>
             <section class="first-step-input-section">
-              <section class="first-step-input-label">
+              <section class="first-step-input-label-section">
                 <label class="first-step-label-text" for="name">Name</label>
                 <span class="first-step-error-text">This field is required</span>
               </section>
-              <input class="first-step-input" type="text" name="name" id="name" placeholder="e.g. John Smith" maxLength="24">
+              <input class="first-step-input" type="text" name="name" id="name" placeholder="e.g. Stephen King" maxLength="24">
             </section>
             <section class="first-step-input-section">
-              <section class="first-step-input-label">
+              <section class="first-step-input-label-section">
                 <label class="first-step-label-text" for="email">Email Address</label>
                 <span class="first-step-error-text">This field is required</span>
               </section>
-              <input class="first-step-input" type="email" name="email" id="email" placeholder="e.g. email@gmail.com" maxLength="32">
+              <input class="first-step-input" type="email" name="email" id="email" placeholder="e.g. stephenking@lorem.com" maxLength="32">
             </section>
             <section class="first-step-input-section">
-              <section class="first-step-input-label">
+              <section class="first-step-input-label-section">
                 <label class="first-step-label-text" for="phone">Phone Number</label>
                 <span class="first-step-error-text">This field is required</span>
               </section>
@@ -186,7 +194,7 @@
           <span class="fourth-step-summary-footer-total-price-text">+$12/mo</span>
         </footer>
       </div>
-      <div class="five-step-div main-step-div active">
+      <div class="five-step-div main-step-div">
         <img class="five-step-thank-you-img" src="/image/icon-thank-you.svg" alt="thank-you-icon">
         <section class="five-step-text-section">
           <h1 class="five-step-under-heading-text">Thank you!</h1>
