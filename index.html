@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta author="vvaciej">
   <link rel="icon" href="">
   <script src="https://kit.fontawesome.com/b367f4fd12.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style/style.css">
@@ -42,7 +43,7 @@
       </section>
     </aside>
     <main class="container-main">
-      <div class="first-step-div">
+      <div class="first-step-div main-step-div">
         <header class="step-heading-section">
           <h1 class="step-heading-text">Personal info</h1>
           <p class="step-under-heading-text">Please provide your name, email address, and phone number.</p>
@@ -73,7 +74,7 @@
           </form>
         </main>
       </div>
-      <div class="second-step-div active">
+      <div class="second-step-div main-step-div">
         <header class="step-heading-section">
           <h1 class="step-heading-text">Selected your plan</h1>
           <p class="step-under-heading-text">You have the option of monthly of yearly billing.</p>
@@ -85,6 +86,7 @@
               <section class="second-step-plan-describe-section">
                 <h4 class="second-step-plan-level-text">Arcade</h4>
                 <span class="second-step-plan-price-text">$9/mo</span>
+                <span class="second-step-choose-yearly-text">2 months free</span>
               </section>
             </button>
             <button class="second-step-choose-plan-btn">
@@ -92,6 +94,7 @@
               <section class="second-step-plan-describe-section">
                 <h4 class="second-step-plan-level-text">Advanced</h4>
                 <span class="second-step-plan-price-text">$12/mo</span>
+                <span class="second-step-choose-yearly-text">2 months free</span>
               </section>
             </button>
             <button class="second-step-choose-plan-btn">
@@ -99,6 +102,7 @@
               <section class="second-step-plan-describe-section">
                 <h4 class="second-step-plan-level-text">Pro</h4>
                 <span class="second-step-plan-price-text">$15/mo</span>
+                <span class="second-step-choose-yearly-text">2 months free</span>
               </section>
             </button>
           </section>
@@ -109,9 +113,92 @@
           </section>
         </main>
       </div>
+      <div class="third-step-div main-step-div">
+        <header class="step-heading-section">
+          <h1 class="step-heading-text">Pick add-ons</h1>
+          <p class="step-under-heading-text">Add-ons help enhance your gaming experience</p>
+        </header>
+        <main class="third-step-add-ons-section">
+          <button class="third-step-add-ons-btn">
+            <section class="third-step-add-ons-btn-leftside">
+              <input class="third-step-add-ons-checkbox" type="checkbox">
+              <section class="third-step-add-ons-btn-middle-text">
+                <h3 class="third-step-add-ons-btn-heading-text">Online service</h3>
+                <p class="third-step-add-ons-btn-under-heading-text">Access to multiplayer games</p>
+              </section>
+            </section>
+            <section class="third-step-add-ons-btn-rightside">
+              <span class="third-step-add-ons-btn-rightside-price-text">+$1/mo</span>
+            </section>
+          </button>
+          <button class="third-step-add-ons-btn">
+            <section class="third-step-add-ons-btn-leftside">
+              <input class="third-step-add-ons-checkbox" type="checkbox">
+              <section class="third-step-add-ons-btn-middle-text">
+                <h3 class="third-step-add-ons-btn-heading-text">Larger storage</h3>
+                <p class="third-step-add-ons-btn-under-heading-text">Extra 1TB of cloud save</p>
+              </section>
+            </section>
+            <section class="third-step-add-ons-btn-rightside">
+              <span class="third-step-add-ons-btn-rightside-price-text">+$2/mo</span>
+            </section>
+          </button>
+          <button class="third-step-add-ons-btn">
+            <section class="third-step-add-ons-btn-leftside">
+              <input class="third-step-add-ons-checkbox" type="checkbox">
+              <section class="third-step-add-ons-btn-middle-text">
+                <h3 class="third-step-add-ons-btn-heading-text">Customizable Profile</h3>
+                <p class="third-step-add-ons-btn-under-heading-text">Custom theme on your profile</p>
+              </section>
+            </section>
+            <section class="third-step-add-ons-btn-rightside">
+              <span class="third-step-add-ons-btn-rightside-price-text">+$2/mo</span>
+            </section>
+          </button>
+        </main>
+      </div>
+      <div class="fourth-step-div main-step-div">
+        <header class="step-heading-section">
+          <h1 class="step-heading-text">Finishing up</h1>
+          <p class="step-under-heading-text">Double-check everything looks OK before confirming.</p>
+        </header>
+        <main class="fourth-step-summary-section">
+          <section class="fourth-step-summary-topside-section">
+            <section class="fourth-step-summary-topside-leftside-section">
+              <h3 class="fourth-step-summary-topside-heading-text">Arcade (Monthly)</h3>
+              <a class="fourth-step-summary-topside-change-link" href="#">Change</a>
+            </section>
+            <span class="fourth-step-summary-topside-rightside-price-text">$9/mo</span>
+          </section>
+          <section class="fourth-step-summary-bottomside-section">
+            <section class="fourth-step-summary-bottomside-text-section">
+              <h3 class="fourth-step-summary-bottomside-left-heading-text">Online service</h3>
+              <span class="fourth-step-summary-bottomside-right-price-text">+$1/mo</span>
+            </section>
+            <section class="fourth-step-summary-bottomside-text-section">
+              <h3 class="fourth-step-summary-bottomside-left-heading-text">Larger storage</h3>
+              <span class="fourth-step-summary-bottomside-right-price-text">+$2/mo</span>
+            </section>
+          </section>
+        </main>
+        <footer class="fourth-step-summary-footer-section">
+          <h3 class="fourth-step-summary-footer-leftside-text">Total (per month)</h3>
+          <span class="fourth-step-summary-footer-total-price-text">+$12/mo</span>
+        </footer>
+      </div>
+      <div class="five-step-div main-step-div active">
+        <img class="five-step-thank-you-img" src="/image/icon-thank-you.svg" alt="thank-you-icon">
+        <section class="five-step-text-section">
+          <h1 class="five-step-under-heading-text">Thank you!</h1>
+          <p class="five-step-under-under-heading-text">
+            Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.
+          </p>
+        </section>
+      </div>
       <aside class="step-aside-btn-container">
         <button class="step-aside-back-btn">Go Back</button>
-        <button class="step-aside-next-btn">Next Step</button>
+        <button class="step-aside-btn step-aside-confirm-btn">Confirm</button>
+        <button class="step-aside-btn step-aside-next-btn">Next Step</button>
       </aside>
     </main>
   </div>

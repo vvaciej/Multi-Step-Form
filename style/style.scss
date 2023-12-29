@@ -53,8 +53,8 @@ body {
     height: 100%;
     background-image: url('/image/bg-sidebar-desktop.svg');
     background-repeat: no-repeat;
-    background-size: cover;
-    width: 293px;
+    background-size: contain;
+    width: 100%;
     padding: 20px 35px;
     filter: brightness(110%);
     .aside-step-section {
@@ -117,6 +117,9 @@ body {
         color: $CoolGray;
         font-size: 16.5px;
       }
+    }
+    .main-step-div {
+      width: 480px;
     }
     .first-step-div {
       display: flex;
@@ -185,7 +188,6 @@ body {
         display: none;
       }
       .second-step-plan-section {
-        width: 460px;
         .second-step-choose-plan-section {
           display: flex;
           justify-content: space-between;
@@ -201,7 +203,7 @@ body {
             color: $MarineBlue;
             font-size: 17px;
             font-weight: 600;
-            height: 165px;
+            height: 190px;
             width: 100%;
             &:hover {
               border: 1px solid $PurplishBlue;
@@ -213,13 +215,22 @@ body {
               align-items: flex-start;
               .second-step-plan-level-text {
                 width: max-content;
-                font-size: 16px;
-                margin-bottom: 4px;
+                font-size: 17px;
+                margin-bottom: 6px;
               }
               .second-step-plan-price-text {
-                font-size: 14px;
+                font-size: 15px;
                 color: $CoolGray;
+                font-weight: 400;
+              }
+              .second-step-choose-yearly-text {
+                font-size: 14px;
+                color: $MarineBlue;
                 font-weight: 500;
+                margin-top: 9px;
+                &:not(.active) {
+                  display: none;
+                }
               }
             }
           }
@@ -235,7 +246,7 @@ body {
           align-items: center;
           column-gap: 35px;
           width: 100%;
-          height: 45px;
+          height: 52px;
           border-radius: 8px;
           background-color: $Alabaster;
           .second-step-toggle-switch {
@@ -278,6 +289,192 @@ body {
         }
       }
     }
+    .third-step-div {
+      &:not(.active) {
+        display: none;
+      }
+      .third-step-add-ons-section {
+        width: 480px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        .third-step-add-ons-btn {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: $White;
+          height: 85px;
+          border: 1px solid $Lightgray;
+          border-radius: 8px;
+          width: 100%;
+          padding: 0px 25px;
+          &:hover {
+            border: 1px solid $PurplishBlue;
+          }
+          .third-step-add-ons-btn-leftside {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            column-gap: 23px;
+            .third-step-add-ons-checkbox {
+              appearance: none;
+              -webkit-appearance: none;
+              background-color: transparent;
+              border: 1px solid $Lightgray;
+              height: 20px;
+              width: 20px;
+              border-radius: 5px;
+              position: relative;
+              cursor: pointer;
+              &:checked {
+                border: 0;
+                background-color: $PurplishBlue;
+              }
+              &:checked::after {
+                content: "\f00c";
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                font-size: 13px;
+                color: $White;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              }
+            }
+            .third-step-add-ons-btn-middle-text {
+              display: flex;
+              flex-direction: column;
+              row-gap: 5px;
+              .third-step-add-ons-btn-heading-text {
+                font-size: 17px;
+                color: $MarineBlue;
+                font-weight: 500;
+              }
+              .third-step-add-ons-btn-under-heading-text {
+                font-size: 15px;
+                color: $CoolGray;
+                font-weight: 400;
+              }
+            }
+          }
+          .third-step-add-ons-btn-rightside {
+            .third-step-add-ons-btn-rightside-price-text {
+              font-size: 14.5px;
+              color: $PurplishBlue;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+    .fourth-step-div {
+      &:not(.active) {
+        display: none;
+      }
+      .fourth-step-summary-section {
+        height: max-content;
+        width: 100%;
+        background-color: #f6f6f6;
+        border-radius: 8px;
+        padding: 22px;
+        .fourth-step-summary-topside-section {
+          border-bottom: 1px solid $Lightgray;
+          padding-bottom: 28px;
+          display: flex;
+          align-items: center;
+          .fourth-step-summary-topside-leftside-section {
+            width: 100%;
+            .fourth-step-summary-topside-heading-text {
+              font-size: 17px;
+              color: $MarineBlue;
+              font-weight: 500;
+              margin-bottom: 7px;
+            }
+            .fourth-step-summary-topside-change-link {
+              font-size: 14px;
+              color: $CoolGray;
+              font-weight: 500;
+              text-decoration-thickness: 2px;
+              &:hover {
+                color: $PurplishBlue;
+              }
+            }
+          }
+          .fourth-step-summary-topside-rightside-price-text {
+            font-size: 17px;
+            color: $MarineBlue;
+            font-weight: 600;
+          }
+        }
+        .fourth-step-summary-bottomside-section {
+          padding-top: 20px;
+          padding-bottom: 5px;
+          display: flex;
+          flex-direction: column;
+          row-gap: 22px;
+          .fourth-step-summary-bottomside-text-section {
+            display: flex;
+            justify-content: space-between;
+            .fourth-step-summary-bottomside-left-heading-text {
+              font-size: 15px;
+              color: $CoolGray;
+              font-weight: 400;
+            }
+            .fourth-step-summary-bottomside-right-price-text {
+              font-size: 15px;
+              color: $MarineBlue;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+      .fourth-step-summary-footer-section {
+        padding-top: 26px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto;
+        .fourth-step-summary-footer-leftside-text {
+          font-size: 15px;
+          color: $CoolGray;
+          font-weight: 400;
+        }
+        .fourth-step-summary-footer-total-price-text {
+          font-size: 22px;
+          color: $PurplishBlue;
+          font-weight: 600;
+        }
+      }
+    }
+    .five-step-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      row-gap: 30px;
+      height: 100%;
+      padding-bottom: 80px;
+      &:not(.active) {
+        display: none;
+      }
+      .five-step-text-section {
+        text-align: center;
+        .five-step-under-heading-text {
+          font-size: 34px;
+          color: $MarineBlue;
+          font-weight: 700;
+          margin-bottom: 14px;
+        }
+        .five-step-under-under-heading-text {
+          font-size: 16.7px;
+          color: $CoolGray;
+          font-weight: 400;
+          line-height: 1.5;
+        }
+      }
+    }
     .step-aside-btn-container {
       display: flex;
       justify-content: space-between;
@@ -285,18 +482,29 @@ body {
       left: 0;
       bottom: 20px;
       width: 100%;
-      .step-aside-next-btn {
+      .step-aside-btn {
         position: relative;
         border: 0;
-        background-color: $MarineBlue;
         color: $White;
         font-size: 16px;
         height: 48px;
         width: 120px;
         border-radius: 8px;
+      }
+      .step-aside-next-btn {
+        background-color: $MarineBlue;
         &:hover {
           filter: brightness(140%);
           transform: translate(8px);
+        }
+      }
+      .step-aside-confirm-btn {
+        background-color: $PurplishBlue;
+        &:not(.active) {
+          display: none;
+        }
+        &:hover {
+          background-color: $PastelBlue;
         }
       }
       .step-aside-back-btn {
