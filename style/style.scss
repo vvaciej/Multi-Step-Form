@@ -336,6 +336,9 @@ body {
             }
             &:hover {
               border: 1px solid $PurplishBlue;
+              @include mobile {
+                border: 1px solid $Lightgray;
+              }
             }
             .second-step-plan-describe-section {
               width: 100%;

@@ -347,6 +347,11 @@ body .step-form-number.active {
 .container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn:hover {
   border: 1px solid hsl(243, 100%, 62%);
 }
+@media (max-width: 576px) {
+  .container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn:hover {
+    border: 1px solid hsl(229, 24%, 87%);
+  }
+}
 .container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn .second-step-plan-describe-section {
   width: 100%;
   display: flex;
