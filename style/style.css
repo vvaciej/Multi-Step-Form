@@ -63,7 +63,7 @@ body .step-form-number.active {
   justify-content: center;
   padding-top: 46px;
   position: absolute;
-  background-image: url(/image/bg-sidebar-mobile.svg);
+  background-image: url("/image/bg-sidebar-mobile.svg");
   background-repeat: no-repeat;
   background-size: cover;
   top: 0;
@@ -111,9 +111,10 @@ body .step-form-number.active {
 }
 @media (max-width: 576px) {
   .container {
+    padding-bottom: 35px;
+    padding-top: 35px;
     height: -moz-max-content;
     height: max-content;
-    padding-bottom: 20px;
     width: 92%;
     margin-top: 90px;
     margin-bottom: 100px;
@@ -184,7 +185,7 @@ body .step-form-number.active {
 @media (max-width: 576px) {
   .container .container-main {
     position: static;
-    padding-top: 35px;
+    padding-top: 0;
     padding-bottom: 19px;
   }
 }
