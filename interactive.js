@@ -368,6 +368,7 @@ function fourthStepSummary (e) {
 function afterFourthValidity () {
   fourthStepDiv.classList.remove('active');
   fiveStepDiv.classList.add('active');
+  updateAddOns();
 }
 
 // all steps section
