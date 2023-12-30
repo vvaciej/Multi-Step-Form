@@ -89,7 +89,7 @@
         </header>
         <main class="second-step-plan-section">
           <section class="second-step-choose-plan-section">
-            <button class="second-step-choose-plan-btn">
+            <button class="second-step-choose-plan-btn arcade">
               <img class="second-step-plan-icon" src="/image/icon-arcade.svg" alt="arcade-plan-icon">
               <section class="second-step-plan-describe-section">
                 <h4 class="second-step-plan-level-text">Arcade</h4>
@@ -97,7 +97,7 @@
                 <span class="second-step-choose-yearly-text">2 months free</span>
               </section>
             </button>
-            <button class="second-step-choose-plan-btn">
+            <button class="second-step-choose-plan-btn advanced">
               <img class="second-step-plan-icon" src="/image/icon-advanced.svg" alt="advanced-plan-icon">
               <section class="second-step-plan-describe-section">
                 <h4 class="second-step-plan-level-text">Advanced</h4>
@@ -105,7 +105,7 @@
                 <span class="second-step-choose-yearly-text">2 months free</span>
               </section>
             </button>
-            <button class="second-step-choose-plan-btn">
+            <button class="second-step-choose-plan-btn pro">
               <img class="second-step-plan-icon" src="/image/icon-pro.svg" alt="pro-plan-icon">
               <section class="second-step-plan-describe-section">
                 <h4 class="second-step-plan-level-text">Pro</h4>
@@ -127,9 +127,9 @@
           <p class="step-under-heading-text">Add-ons help enhance your gaming experience</p>
         </header>
         <main class="third-step-add-ons-section">
-          <button class="third-step-add-ons-btn">
+          <label for="checkbox1" class="third-step-add-ons-btn">
             <section class="third-step-add-ons-btn-leftside">
-              <input class="third-step-add-ons-checkbox" type="checkbox">
+              <input id="checkbox1" class="third-step-add-ons-checkbox" type="checkbox" data-addon="Online services">
               <section class="third-step-add-ons-btn-middle-text">
                 <h3 class="third-step-add-ons-btn-heading-text">Online service</h3>
                 <p class="third-step-add-ons-btn-under-heading-text">Access to multiplayer games</p>
@@ -138,10 +138,10 @@
             <section class="third-step-add-ons-btn-rightside">
               <span class="third-step-add-ons-btn-rightside-price-text">+$1/mo</span>
             </section>
-          </button>
-          <button class="third-step-add-ons-btn">
+          </label>
+          <label for="checkbox2" class="third-step-add-ons-btn">
             <section class="third-step-add-ons-btn-leftside">
-              <input class="third-step-add-ons-checkbox" type="checkbox">
+              <input id="checkbox2" class="third-step-add-ons-checkbox" type="checkbox" data-addon="Larger storage">
               <section class="third-step-add-ons-btn-middle-text">
                 <h3 class="third-step-add-ons-btn-heading-text">Larger storage</h3>
                 <p class="third-step-add-ons-btn-under-heading-text">Extra 1TB of cloud save</p>
@@ -150,10 +150,10 @@
             <section class="third-step-add-ons-btn-rightside">
               <span class="third-step-add-ons-btn-rightside-price-text">+$2/mo</span>
             </section>
-          </button>
-          <button class="third-step-add-ons-btn">
+          </label>
+          <label for="checkbox3" class="third-step-add-ons-btn">
             <section class="third-step-add-ons-btn-leftside">
-              <input class="third-step-add-ons-checkbox" type="checkbox">
+              <input id="checkbox3" class="third-step-add-ons-checkbox" type="checkbox" data-addon="Customizable profile">
               <section class="third-step-add-ons-btn-middle-text">
                 <h3 class="third-step-add-ons-btn-heading-text">Customizable Profile</h3>
                 <p class="third-step-add-ons-btn-under-heading-text">Custom theme on your profile</p>
@@ -162,7 +162,7 @@
             <section class="third-step-add-ons-btn-rightside">
               <span class="third-step-add-ons-btn-rightside-price-text">+$2/mo</span>
             </section>
-          </button>
+          </label>
         </main>
       </div>
       <div class="fourth-step-div main-step-div">
@@ -179,13 +179,17 @@
             <span class="fourth-step-summary-topside-rightside-price-text">$9/mo</span>
           </section>
           <section class="fourth-step-summary-bottomside-section">
-            <section class="fourth-step-summary-bottomside-text-section">
+            <section class="fourth-step-summary-bottomside-text-section online-service-section">
               <h3 class="fourth-step-summary-bottomside-left-heading-text">Online service</h3>
-              <span class="fourth-step-summary-bottomside-right-price-text">+$1/mo</span>
+              <span class="fourth-step-summary-bottomside-right-price-text online-service-price">+$0/mo</span>
             </section>
-            <section class="fourth-step-summary-bottomside-text-section">
+            <section class="fourth-step-summary-bottomside-text-section larger-storage-section">
               <h3 class="fourth-step-summary-bottomside-left-heading-text">Larger storage</h3>
-              <span class="fourth-step-summary-bottomside-right-price-text">+$2/mo</span>
+              <span class="fourth-step-summary-bottomside-right-price-text larger-storage-price">+$0/mo</span>
+            </section>
+            <section class="fourth-step-summary-bottomside-text-section customizable-profile-section">
+              <h3 class="fourth-step-summary-bottomside-left-heading-text">Customizable Profile</h3>
+              <span class="fourth-step-summary-bottomside-right-price-text customizable-profile-price">+$0/mo</span>
             </section>
           </section>
         </main>
@@ -206,7 +210,7 @@
       <aside class="step-aside-btn-container">
         <button class="step-aside-back-btn">Go Back</button>
         <button class="step-aside-btn step-aside-confirm-btn">Confirm</button>
-        <button class="step-aside-btn step-aside-next-btn">Next Step</button>
+        <button class="step-aside-btn step-aside-next-btn active">Next Step</button>
       </aside>
     </main>
   </div>

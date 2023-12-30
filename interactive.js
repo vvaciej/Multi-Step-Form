@@ -5,6 +5,7 @@ const firstStepDiv = document.querySelector('.first-step-div');
 const secondStepDiv = document.querySelector('.second-step-div');
 const thirdStepDiv = document.querySelector('.third-step-div');
 const fourthStepDiv = document.querySelector('.fourth-step-div');
+const fiveStepDiv = document.querySelector('.five-step-div');
 
 let actualStepDesktop = 0;
 let actualStepMobile = 0;
@@ -115,10 +116,6 @@ function afterFirstValidity () {
     afterValidity();
 
     goBackBtn.classList.add('active');
-    // reset inputs
-    firstStepInput.forEach((input) => {
-      input.value = '';
-    });
   }
 }
 
@@ -173,16 +170,19 @@ function secondStepChoosePlan (e) {
       btn.classList.add('chosen');
       chosenPlanIndex = index;
     }
-    else if (clickedPlanContainsClass) {
+    else if (clickedPlan === btn && clickedPlanContainsClass) {
       btn.classList.remove('chosen');
+      chosenPlanIndex = null;
     }
   });
-
   return chosenPlanIndex;
 }
 
 secondStepChooseBtn.forEach((btn) => {
-  btn.addEventListener('click', secondStepChoosePlan);
+  btn.addEventListener('click', (e) => {
+    secondStepChoosePlan(e);
+    fourthStepSummary();
+  });
 });
 
 let isSecondStepValid = true;
@@ -213,9 +213,162 @@ function afterSecondValidity () {
     thirdStepDiv.classList.add('active');
 
     afterValidity();
+    thirdStepChangePrice();
   }
 }
 // third step section
+function thirdStepChangePrice () {
+  const thirdStepPrice = document.querySelectorAll('.third-step-add-ons-btn-rightside-price-text');
+  if (toggleSwitch.classList.contains('switched')) {
+    thirdStepPrice[0].textContent = '+$10/yr';
+    thirdStepPrice[1].textContent = '+$20/yr';
+    thirdStepPrice[2].textContent = '+$20/yr';
+  } else {    
+    thirdStepPrice[0].textContent = '+$1/mo';
+    thirdStepPrice[1].textContent = '+$2/mo';
+    thirdStepPrice[2].textContent = '+$2/mo';
+  }
+}
+
+const thirdStepAddOnsBtn = document.querySelectorAll('.third-step-add-ons-btn');
+
+function thirdStepChooseAddOns(e) {
+	const clickedAddOn = e.currentTarget;
+  const checkboxEl = clickedAddOn.querySelector('.third-step-add-ons-checkbox');
+
+	if (checkboxEl.checked) clickedAddOn.classList.add('chosen');
+  else clickedAddOn.classList.remove('chosen');
+  updateAddOns();
+}
+
+thirdStepAddOnsBtn.forEach((btn) => {
+  btn.addEventListener('click', thirdStepChooseAddOns);
+});
+
+const confirmBtn = document.querySelector('.step-aside-confirm-btn');
+
+function afterThirdValidity() {
+  afterValidity();
+  thirdStepDiv.classList.remove('active');
+  fourthStepDiv.classList.add('active');
+  submitBtn.classList.remove('active');
+  confirmBtn.classList.add('active');
+  fourthStepSummary();
+}
+
+confirmBtn.addEventListener('click', function () {
+  if (actualStepContainer === 4) {
+    confirmBtn.classList.remove('active');
+    goBackBtn.classList.remove('active');
+    fourthStepDiv.classList.remove('active');
+    fiveStepDiv.classList.add('active');
+  }
+});
+// fourth steps section
+function whatPlanChosen () {
+  let chosenPlan = null;
+
+  secondStepChooseBtn.forEach(btn => {
+    if (btn.classList.contains('chosen') && btn.classList.contains('arcade')) {
+      chosenPlan = 'Arcade';
+    } else if (btn.classList.contains('chosen') && btn.classList.contains('pro')) {
+      chosenPlan = 'Pro';
+    } else if (btn.classList.contains('chosen') && btn.classList.contains('advanced')) {
+      chosenPlan = 'Advanced';
+    }
+  });
+
+  return chosenPlan;
+}
+
+function whatPriceOfPlan () {
+  const forYearlyPlan = toggleSwitch.classList.contains('switched');
+  let chosenPlanPrice = null;
+  let chosenPlan = whatPlanChosen();
+
+  if (!forYearlyPlan) {
+    chosenPlan === 'Arcade' ? chosenPlanPrice = 9 : null;
+    chosenPlan === 'Pro' ? chosenPlanPrice = 12 : null;
+    chosenPlan === 'Advanced' ? chosenPlanPrice = 15 : null;
+  } else if (forYearlyPlan) {
+    chosenPlan === 'Arcade' ? chosenPlanPrice = 90 : null;
+    chosenPlan === 'Pro' ? chosenPlanPrice = 120 : null;
+    chosenPlan === 'Advanced' ? chosenPlanPrice = 150 : null;
+  }
+
+  return chosenPlanPrice;
+}
+
+function updateAddOns () {
+	const checkboxEl = document.querySelectorAll('.third-step-add-ons-checkbox');
+	const addOnsArr = new Set();
+
+  checkboxEl.forEach(checkbox => {
+		if (checkbox.checked) {
+			const addOnName = checkbox.dataset.addon;
+			addOnsArr.add(addOnName);
+		}
+	});
+
+	return addOnsArr;
+}
+
+function fourthStepSummary (e) {
+  const totalText = document.querySelector('.fourth-step-summary-footer-leftside-text');
+	const totalTextPrice = document.querySelector('.fourth-step-summary-footer-total-price-text');
+	const onlineService = document.querySelector('.online-service-price');
+	const largerStoragePrice = document.querySelector('.larger-storage-price');
+  const customizablePrice = document.querySelector('.customizable-profile-price');
+  const onlineServiceSection = document.querySelector('.online-service-section');
+  const largerStorageSection = document.querySelector('.larger-storage-section');
+  const customizableProfileSection = document.querySelector('.customizable-profile-section');
+	const planPrice = document.querySelector('.fourth-step-summary-topside-rightside-price-text');
+	const planText = document.querySelector('.fourth-step-summary-topside-heading-text');
+  
+	let chosenPlan = whatPlanChosen();
+  let chosenPlanPrice = whatPriceOfPlan(); 
+  let addOnsArr = updateAddOns();
+
+  if (addOnsArr.has('Online services')) onlineServiceSection.classList.add('active');
+  else onlineServiceSection.classList.remove('active');
+  if (addOnsArr.has('Larger storage')) largerStorageSection.classList.add('active');
+  else largerStorageSection.classList.remove('active');
+  if (addOnsArr.has('Customizable profile')) customizableProfileSection.classList.add('active');
+  else customizableProfileSection.classList.remove('active');
+  
+  const forYearlyPlan = toggleSwitch.classList.contains('switched'); 
+  
+  const monthOrYear = forYearlyPlan ? 'yr' : 'mo';
+
+  planPrice.textContent = `$${chosenPlanPrice}/${monthOrYear}`;
+
+  if (onlineServiceSection.classList.contains('active')) {
+    onlineService.textContent = `+$${forYearlyPlan ? '10' : '1'}/${monthOrYear}`;
+  } 
+  if (largerStorageSection.classList.contains('active')) {
+    largerStoragePrice.textContent = `+$${forYearlyPlan ? '20' : '2'}/${monthOrYear}`;
+  }
+  if (customizableProfileSection.classList.contains('active')) {
+    customizablePrice.textContent = `+$${forYearlyPlan ? '20' : '2'}/${monthOrYear}`;
+  }
+  
+  totalText.textContent = `Total (per ${forYearlyPlan ? 'year' : 'month'})`;
+
+  totalTextPrice.textContent = `
+  $${
+  Number(planPrice.textContent.slice(1, -3)) + 
+  Number(onlineService.textContent.slice(2, -3)) +
+  Number(largerStoragePrice.textContent.slice(2, -3)) +
+  Number(customizablePrice.textContent.slice(2, -3))
+  }/${monthOrYear}`;
+
+	planText.textContent = `${chosenPlan} (${forYearlyPlan ? 'Yearly' : 'Monthly'})`;
+}
+
+function afterFourthValidity () {
+  fourthStepDiv.classList.remove('active');
+  fiveStepDiv.classList.add('active');
+}
 
 // all steps section
 submitBtn.addEventListener('click', () => {
@@ -226,16 +379,14 @@ submitBtn.addEventListener('click', () => {
     case 2:
       afterSecondValidity();
       break;
-    /*
     case 3:
-      thirdStepDiv.classList.remove('active');
-      fourthStepDiv.classList.add('active');
-      actualStepContainer++;
+      afterThirdValidity();
       break;
-    */
-  }
+    case 4: 
+      afterFourthValidity();
+      break;
+    }
 });
-
 
 function goBackBtnFunction() {
   switch (actualStepContainer) { 
@@ -250,10 +401,15 @@ function goBackBtnFunction() {
     case 4:
       fourthStepDiv.classList.remove('active');
       thirdStepDiv.classList.add('active');
+      submitBtn.classList.add('active');
+      confirmBtn.classList.remove('active');
+      break;
+    case 5:
+      fiveStepDiv.classList.remove('active');
+      fourthStepDiv.classList.add('active');
       break;
   }
       
-  
 	actualStepContainer--;
   if (actualStepContainer === 1) goBackBtn.classList.remove('active');
 
@@ -267,4 +423,3 @@ function goBackBtnFunction() {
 }
 
 goBackBtn.addEventListener('click', goBackBtnFunction);
-

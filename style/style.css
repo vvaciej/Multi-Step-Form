@@ -479,6 +479,7 @@ body .step-form-number.active {
   border-radius: 8px;
   width: 100%;
   padding: 0px 25px;
+  cursor: pointer;
 }
 @media (max-width: 576px) {
   .container .container-main .third-step-div .third-step-add-ons-section .third-step-add-ons-btn {
@@ -563,6 +564,10 @@ body .step-form-number.active {
   color: hsl(243, 100%, 62%);
   font-weight: 400;
 }
+.container .container-main .third-step-div .third-step-add-ons-section .third-step-add-ons-btn.chosen {
+  border: 1px solid hsl(243, 100%, 62%);
+  background-color: #f6f6f6;
+}
 .container .container-main .fourth-step-div:not(.active) {
   display: none;
 }
@@ -629,6 +634,9 @@ body .step-form-number.active {
 .container .container-main .fourth-step-div .fourth-step-summary-section .fourth-step-summary-bottomside-section .fourth-step-summary-bottomside-text-section {
   display: flex;
   justify-content: space-between;
+}
+.container .container-main .fourth-step-div .fourth-step-summary-section .fourth-step-summary-bottomside-section .fourth-step-summary-bottomside-text-section:not(.active) {
+  display: none;
 }
 .container .container-main .fourth-step-div .fourth-step-summary-section .fourth-step-summary-bottomside-section .fourth-step-summary-bottomside-text-section .fourth-step-summary-bottomside-left-heading-text {
   font-size: 15px;
@@ -737,6 +745,9 @@ body .step-form-number.active {
 .container .container-main .step-aside-btn-container .step-aside-next-btn {
   background-color: hsl(213, 96%, 18%);
 }
+.container .container-main .step-aside-btn-container .step-aside-next-btn:not(.active) {
+  display: none;
+}
 .container .container-main .step-aside-btn-container .step-aside-next-btn:hover {
   filter: brightness(140%);
   transform: translate(8px);
@@ -754,7 +765,7 @@ body .step-form-number.active {
   position: relative;
   border: 0;
   background-color: hsl(0, 0%, 100%);
-  color: hsl(213, 96%, 18%);
+  color: hsl(231, 11%, 63%);
   font-size: 16px;
   width: -moz-max-content;
   width: max-content;

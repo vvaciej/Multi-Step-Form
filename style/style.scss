@@ -459,6 +459,7 @@ body {
           border-radius: 8px;
           width: 100%;
           padding: 0px 25px;
+          cursor: pointer;
           @include mobile {
             height: max-content;
             padding: 15px;
@@ -533,6 +534,10 @@ body {
             }
           }
         }
+        .third-step-add-ons-btn.chosen {
+          border: 1px solid $PurplishBlue;
+          background-color: #f6f6f6;
+        }
       }
     }
     .fourth-step-div {
@@ -593,6 +598,9 @@ body {
           .fourth-step-summary-bottomside-text-section {
             display: flex;
             justify-content: space-between;
+            &:not(.active) {
+              display: none;
+            }
             .fourth-step-summary-bottomside-left-heading-text {
               font-size: 15px;
               color: $CoolGray;
@@ -690,6 +698,9 @@ body {
       }
       .step-aside-next-btn {
         background-color: $MarineBlue;
+        &:not(.active) {
+          display: none;
+        }
         &:hover {
           filter: brightness(140%);
           transform: translate(8px);
@@ -708,7 +719,7 @@ body {
         position: relative;
         border: 0;
         background-color: $White;
-        color: $MarineBlue;
+        color: $CoolGray;
         font-size: 16px;
         width: max-content;
         font-weight: 600;
