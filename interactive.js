@@ -16,7 +16,7 @@ const firstStepInput = document.querySelectorAll('.first-step-input');
 const firstStepErrorText = document.querySelectorAll('.first-step-error-text');
 const submitBtn = document.querySelector('.step-aside-next-btn');
 
-let isValid = true;
+let isFirstStepValid = true;
 
 function checkEmptyInputs() {
 	firstStepInput.forEach((input, index) => {
@@ -25,7 +25,7 @@ function checkEmptyInputs() {
 		if (inputValue === '') {
 			input.classList.add('error');
 			firstStepErrorText[index].classList.add('error');
-			isValid = false;
+			isFirstStepValid = false;
 		} else {
 			input.classList.remove('error');
 			firstStepErrorText[index].classList.remove('error');
@@ -46,7 +46,7 @@ function checkFullName() {
 	if (!nameRegex.test(firstStepInput[0].value)) {
 		firstStepInput[0].classList.add('error');
 		firstStepErrorText[0].classList.add('error');
-		isValid = false;
+		isFirstStepValid = false;
 	} else {
 		firstStepInput[0].classList.remove('error');
 		firstStepErrorText[0].classList.remove('error');
@@ -61,7 +61,7 @@ function checkEmail() {
 	if (!emailRegex.test(firstStepInput[1].value)) {
 		firstStepInput[1].classList.add('error');
 		firstStepErrorText[1].classList.add('error');
-		isValid = false;
+		isFirstStepValid = false;
 	} else {
 		firstStepInput[1].classList.remove('error');
 		firstStepErrorText[1].classList.remove('error');
@@ -75,7 +75,7 @@ function checkPhoneNumber() {
 	if (!phoneRegex.test(firstStepInput[2].value)) {
 		firstStepInput[2].classList.add('error');
 		firstStepErrorText[2].classList.add('error');
-		isValid = false;
+		isFirstStepValid = false;
 	} else {
 		firstStepInput[2].classList.remove('error');
 		firstStepErrorText[2].classList.remove('error');
@@ -83,32 +83,38 @@ function checkPhoneNumber() {
 }
 
 function firstStepCheckValidity() {
-	isValid = true;
+	isFirstStepValid = true;
 
 	checkEmptyInputs();
 	checkFullName();
 	checkEmail();
 	checkPhoneNumber();
 
-	return isValid;
+	return isFirstStepValid;
+}
+
+function afterValidity () {
+  actualStepDesktop++;
+  numberOfStepDesktop[actualStepDesktop].classList.add('active');
+  numberOfStepDesktop[actualStepDesktop - 1].classList.remove('active');
+
+  actualStepMobile++;
+  numberOfStepMobile[actualStepMobile].classList.add('active');
+  numberOfStepMobile[actualStepMobile - 1].classList.remove('active');
+
+  actualStepContainer++;  
 }
 
 function afterFirstValidity () {
   const checkValidity = firstStepCheckValidity();
-  if (checkValidity && isValid) {
+
+  if (checkValidity && isFirstStepValid) {
     firstStepDiv.classList.remove('active');
     secondStepDiv.classList.add('active');
 
-    actualStepDesktop++;
-    numberOfStepDesktop[actualStepDesktop].classList.add('active');
-    numberOfStepDesktop[actualStepDesktop - 1].classList.remove('active');
-
-    actualStepMobile++;
-    numberOfStepMobile[actualStepMobile].classList.add('active');
-    numberOfStepMobile[actualStepMobile - 1].classList.remove('active');
+    afterValidity();
 
     goBackBtn.classList.add('active');
-    actualStepContainer++;
     // reset inputs
     firstStepInput.forEach((input) => {
       input.value = '';
@@ -117,7 +123,7 @@ function afterFirstValidity () {
 }
 
 firstStepInput.forEach((input, index) => {
-  input.addEventListener('keydown', function (e) {
+  input.addEventListener('keydown', (e) => {
     if (input.classList.contains('error')) {
       input.classList.remove('error');
       firstStepErrorText[index].classList.remove('error');
@@ -127,10 +133,109 @@ firstStepInput.forEach((input, index) => {
     }
   });
 });
- 
-submitBtn.addEventListener('click', function () {
-  afterFirstValidity();
+// second step section
+const toggleSwitch = document.querySelector('.second-step-toggle-switch');
+
+function secondStepToggleSwitcher () {
+  const secondStepYearlyPrice = document.querySelectorAll('.second-step-choose-yearly-text');
+  const secondStepPriceTextSwitch = document.querySelectorAll('.second-step-toggle-text');
+  toggleSwitch.classList.toggle('switched');
+
+  if (toggleSwitch.classList.contains('switched')) {
+    secondStepYearlyPrice.forEach((yearly) => {
+      yearly.classList.add('active');
+    });
+    secondStepPriceTextSwitch[0].classList.toggle('active');
+    secondStepPriceTextSwitch[1].classList.toggle('active');
+  } else {
+    secondStepYearlyPrice.forEach((yearly) => {
+      yearly.classList.remove('active');
+    });
+    secondStepPriceTextSwitch[0].classList.toggle('active');
+		secondStepPriceTextSwitch[1].classList.toggle('active');
+  }
+}
+
+toggleSwitch.addEventListener('click', secondStepToggleSwitcher);
+
+const secondStepChooseBtn = document.querySelectorAll('.second-step-choose-plan-btn');
+let chosenPlanIndex = null;
+
+function secondStepChoosePlan (e) {
+  const clickedPlan = e.currentTarget;
+
+  secondStepChooseBtn.forEach((btn, index) => { 
+    const clickedPlanContainsClass = clickedPlan.classList.contains('chosen');
+    if (clickedPlan === btn && !clickedPlanContainsClass) {
+      if (chosenPlanIndex !== null) {
+        secondStepChooseBtn[chosenPlanIndex].classList.remove('chosen');
+      }
+      btn.classList.add('chosen');
+      chosenPlanIndex = index;
+    }
+    else if (clickedPlanContainsClass) {
+      btn.classList.remove('chosen');
+    }
+  });
+
+  return chosenPlanIndex;
+}
+
+secondStepChooseBtn.forEach((btn) => {
+  btn.addEventListener('click', secondStepChoosePlan);
 });
+
+let isSecondStepValid = true;
+
+function secondStepCheckValidity() {
+  isSecondStepValid = true;
+
+  if (chosenPlanIndex === null) {
+    secondStepChooseBtn.forEach((btn) => {
+      btn.classList.add('error');
+    });
+    setTimeout(() => {
+      secondStepChooseBtn.forEach((btn) => {
+        btn.classList.remove('error');
+      });
+    }, 400);
+    isSecondStepValid = false;
+  }
+
+  return isSecondStepValid; 
+}
+
+function afterSecondValidity () {
+  const checkValidity = secondStepCheckValidity();
+
+  if (checkValidity && isSecondStepValid) {
+    secondStepDiv.classList.remove('active');
+    thirdStepDiv.classList.add('active');
+
+    afterValidity();
+  }
+}
+// third step section
+
+// all steps section
+submitBtn.addEventListener('click', () => {
+  switch (actualStepContainer) {
+    case 1:
+      afterFirstValidity();
+      break;
+    case 2:
+      afterSecondValidity();
+      break;
+    /*
+    case 3:
+      thirdStepDiv.classList.remove('active');
+      fourthStepDiv.classList.add('active');
+      actualStepContainer++;
+      break;
+    */
+  }
+});
+
 
 function goBackBtnFunction() {
   switch (actualStepContainer) { 
@@ -162,4 +267,4 @@ function goBackBtnFunction() {
 }
 
 goBackBtn.addEventListener('click', goBackBtnFunction);
-// second step section
+

@@ -18,6 +18,12 @@ html {
     height: auto;
   }
 }
+@media (max-height: 376px) and (orientation: landscape) {
+  html {
+    height: auto;
+    margin-bottom: 100px;
+  }
+}
 html button {
   cursor: pointer;
   font-family: "Ubuntu", sans-serif;
@@ -317,7 +323,7 @@ body .step-form-number.active {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 15px;
+  padding: 18px 15px;
   border: 1px solid hsl(229, 24%, 87%);
   border-radius: 8px;
   background-color: hsl(0, 0%, 100%);
@@ -385,6 +391,9 @@ body .step-form-number.active {
 .container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn.chosen {
   border: 1px solid hsl(243, 100%, 62%);
   background-color: #f6f6f6;
+}
+.container .container-main .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn.error {
+  border: 1px solid hsl(354, 84%, 57%);
 }
 .container .container-main .second-step-div .second-step-plan-section .second-step-toggle-section {
   margin-top: 40px;

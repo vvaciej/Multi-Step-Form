@@ -36,6 +36,12 @@ $White: hsl(0, 0%, 100%);
   }
 }
 
+@mixin landscape-mobile {
+  @media (max-height: 376px) and (orientation: landscape) {
+    @content;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -51,6 +57,10 @@ html {
   @include mobile {
     min-height: 100%;
     height: auto;
+  }
+  @include landscape-mobile {
+    height: auto;
+    margin-bottom: 100px;
   }
   button {
     cursor: pointer;
@@ -308,7 +318,7 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 15px;
+            padding: 18px 15px;
             border: 1px solid $Lightgray;
             border-radius: 8px;
             background-color: $White;
@@ -365,6 +375,9 @@ body {
           .second-step-choose-plan-btn.chosen {
             border: 1px solid $PurplishBlue;
             background-color: #f6f6f6;
+          }
+          .second-step-choose-plan-btn.error {
+            border: 1px solid $StrawberryRed;
           }
         }
         .second-step-toggle-section {
