@@ -16,6 +16,12 @@
     column-gap: 18px;
     list-style: none;
     height: max-content;
+    @include mobile {
+      column-gap: 16px;
+    }
+    @include smaller-mobile {
+      column-gap: 14px;
+    }
   }
   @include smaller-tablet {
     display: flex;

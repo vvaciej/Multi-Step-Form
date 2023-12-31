@@ -664,6 +664,18 @@
   height: -moz-max-content;
   height: max-content;
 }
+@media (max-width: 576px) {
+  .mobile-topside-container .mobile-topside-step-number-list {
+    -moz-column-gap: 16px;
+         column-gap: 16px;
+  }
+}
+@media (max-width: 355px) {
+  .mobile-topside-container .mobile-topside-step-number-list {
+    -moz-column-gap: 14px;
+         column-gap: 14px;
+  }
+}
 @media (max-width: 825px) {
   .mobile-topside-container {
     display: flex;
