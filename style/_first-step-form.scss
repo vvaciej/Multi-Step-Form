@@ -35,12 +35,18 @@
             font-size: 14px;
             font-weight: 500;
             margin-bottom: 3px;
+            @include mobile {
+              font-size: 13px;
+            }
           }
           .first-step-error-text {
             color: $StrawberryRed;
             font-size: 14px;
             font-weight: 700;
             visibility: hidden;
+            @include mobile {
+              font-size: 13px;
+            }
           }
           .first-step-error-text.error {
             visibility: visible;

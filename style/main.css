@@ -47,11 +47,21 @@
   font-weight: 500;
   margin-bottom: 3px;
 }
+@media (max-width: 576px) {
+  .first-step-div .first-step-form-section form .first-step-input-section .first-step-input-label-section .first-step-label-text {
+    font-size: 13px;
+  }
+}
 .first-step-div .first-step-form-section form .first-step-input-section .first-step-input-label-section .first-step-error-text {
   color: hsl(354, 84%, 57%);
   font-size: 14px;
   font-weight: 700;
   visibility: hidden;
+}
+@media (max-width: 576px) {
+  .first-step-div .first-step-form-section form .first-step-input-section .first-step-input-label-section .first-step-error-text {
+    font-size: 13px;
+  }
 }
 .first-step-div .first-step-form-section form .first-step-input-section .first-step-input-label-section .first-step-error-text.error {
   visibility: visible;
