@@ -348,7 +348,7 @@
   position: relative;
   cursor: pointer;
 }
-@media (max-width: 355px) {
+@media (max-width: 576px) {
   .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-leftside .third-step-add-ons-checkbox {
     display: none;
   }
