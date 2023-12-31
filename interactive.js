@@ -237,10 +237,9 @@ function secondStepCheckValidity() {
 }
 
 function afterSecondValidity() {
-	const checkValidity = secondStepCheckValidity();
   const isSecondStepValid = secondStepCheckValidity();
 
-	if (checkValidity && isSecondStepValid) {
+	if (isSecondStepValid) {
 		afterValidity();
 
 		secondStepDiv.classList.remove('active');
@@ -350,7 +349,6 @@ const addOnsSectionSource = {
   largerStorage: document.querySelector('.larger-storage-section'),
   customizableProfile: document.querySelector('.customizable-profile-section'),
 };
-
 
 function calcAddOnsPrice() {
   let addOnsTotalPrice = 0;
