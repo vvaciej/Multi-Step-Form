@@ -1,0 +1,111 @@
+.fourth-step-div {
+  &:not(.active) {
+    display: none;
+  }
+  .fourth-step-summary-section {
+    height: max-content;
+    width: 100%;
+    background-color: #f6f6f6;
+    border-radius: 8px;
+    padding: 22px;
+    .fourth-step-summary-topside-section {
+      display: flex;
+      align-items: center;
+      .fourth-step-summary-topside-leftside-section {
+        width: 100%;
+        .fourth-step-summary-topside-heading-text {
+          font-size: 17px;
+          color: $MarineBlue;
+          font-weight: 500;
+          margin-bottom: 7px;
+          @include mobile {
+            font-size: 15.5px;
+            margin-bottom: 5px;
+          }
+        }
+        .fourth-step-summary-topside-change-link {
+          font-size: 14px;
+          color: $CoolGray;
+          font-weight: 500;
+          text-decoration-thickness: 2px;
+          &:hover {
+            color: $PurplishBlue;
+          }
+        }
+      }
+      .fourth-step-summary-topside-rightside-price-text {
+        font-size: 17px;
+        color: $MarineBlue;
+        font-weight: 600;
+        @include mobile {
+          font-size: 16px;
+        }
+      }
+    }
+    .fourth-step-summary-topside-section.added {
+      padding-bottom: 28px;
+      border-bottom: 1px solid $Lightgray;
+      @include smaller-tablet {
+        padding-bottom: 20px;
+      }
+    }
+    .fourth-step-summary-bottomside-section {
+      //padding-top: 20px;
+      //padding-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 22px;
+      .fourth-step-summary-bottomside-text-section {
+        display: flex;
+        justify-content: space-between;
+        &:not(.active) {
+          display: none;
+        }
+        .fourth-step-summary-bottomside-left-heading-text {
+          font-size: 15px;
+          color: $CoolGray;
+          font-weight: 400;
+          @include mobile {
+            font-size: 14.5px;
+          }
+        }
+        .fourth-step-summary-bottomside-right-price-text {
+          font-size: 15px;
+          color: $MarineBlue;
+          font-weight: 500;
+          @include mobile {
+            font-size: 14px;
+          }
+        }
+      } 
+    }
+    .fourth-step-summary-bottomside-section.added {
+      padding-top: 20px;
+      padding-bottom: 5px;
+    }
+  }
+  .fourth-step-summary-footer-section {
+    padding-top: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    .fourth-step-summary-footer-leftside-text {
+      font-size: 15px;
+      color: $CoolGray;
+      font-weight: 400;
+      @include mobile {
+        font-size: 14.5px;
+      }
+    }
+    .fourth-step-summary-footer-total-price-text {
+      font-size: 22px;
+      color: $PurplishBlue;
+      font-weight: 600;
+      @include mobile {
+        font-size: 18px;
+      }
+    }
+  }
+}

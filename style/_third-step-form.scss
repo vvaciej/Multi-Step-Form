@@ -1,0 +1,100 @@
+.third-step-div {
+  &:not(.active) {
+    display: none;
+  }
+  .third-step-add-ons-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    .third-step-add-ons-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $White;
+      height: 85px;
+      border: 1px solid $Lightgray;
+      border-radius: 8px;
+      width: 100%;
+      padding: 0px 25px;
+      cursor: pointer;
+      @include mobile {
+        height: max-content;
+        padding: 15px;
+      }
+      &:hover {
+        border: 1px solid $PurplishBlue;
+      }
+      .third-step-add-ons-btn-leftside {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        column-gap: 23px;
+        @include mobile {
+          column-gap: 13px;
+        }
+        .third-step-add-ons-checkbox {
+          appearance: none;
+          -webkit-appearance: none;
+          background-color: transparent;
+          border: 1px solid $Lightgray;
+          height: 20px;
+          width: 20px;
+          border-radius: 5px;
+          position: relative;
+          cursor: pointer;
+          &:checked {
+            border: 0;
+            background-color: $PurplishBlue;
+          }
+          &:checked::after {
+            content: "\f00c";
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 13px;
+            color: $White;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+        .third-step-add-ons-btn-middle-text {
+          display: flex;
+          flex-direction: column;
+          row-gap: 5px;
+          margin-right: 16px;
+          .third-step-add-ons-btn-heading-text {
+            font-size: 17px;
+            color: $MarineBlue;
+            font-weight: 500;
+            line-height: 1.3;
+            @include mobile {
+              font-size: 15px;
+            }
+          }
+          .third-step-add-ons-btn-under-heading-text {
+            font-size: 15px;
+            color: $CoolGray;
+            font-weight: 400;
+            line-height: 1.3;
+            @include mobile {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .third-step-add-ons-btn-rightside {
+        .third-step-add-ons-btn-rightside-price-text {
+          font-size: 14.5px;
+          color: $PurplishBlue;
+          font-weight: 400;
+        }
+      }
+    }
+    .third-step-add-ons-btn.chosen {
+      border: 1px solid $PurplishBlue;
+      background-color: #f6f6f6;
+    }
+  }
+}

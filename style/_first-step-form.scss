@@ -1,0 +1,62 @@
+.first-step-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 380px;
+  &:not(.active) {
+    display: none;
+  }
+  .first-step-form-section {
+    form {
+      display: flex;
+      flex-direction: column;
+      height: 270px;
+      justify-content: space-between;
+      .first-step-input-section {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+        .first-step-input-label-section {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          .first-step-label-text {
+            color: $MarineBlue;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 3px;
+          }
+          .first-step-error-text {
+            color: $StrawberryRed;
+            font-size: 14px;
+            font-weight: 700;
+            visibility: hidden;
+          }
+          .first-step-error-text.error {
+            visibility: visible;
+          }
+        }
+        .first-step-input {
+          height: 48px;
+          border-radius: 8px;
+          border: 1px solid $Lightgray;
+          padding: 0 16px;
+          font-size: 16px;
+          color: $MarineBlue;
+          font-weight: 600;
+          &:focus {
+            outline: 0;
+            border: 1px solid $PurplishBlue;
+          }
+          &::placeholder {
+            color: $CoolGray;
+            font-weight: 500;
+          }
+        }
+        .first-step-input.error {
+          border: 1px solid $StrawberryRed;
+        }
+      }
+    }
+  }
+}
