@@ -22,6 +22,9 @@
         height: max-content;
         padding: 15px;
       }
+      @include smaller-mobile {
+        padding: 10px;
+      }
       &:hover {
         border: 1px solid $PurplishBlue;
         @include smaller-tablet {
@@ -36,6 +39,9 @@
         @include mobile {
           column-gap: 13px;
         }
+        @include smaller-mobile {
+          column-gap: 10px;
+        }
         .third-step-add-ons-checkbox {
           appearance: none;
           -webkit-appearance: none;
@@ -46,6 +52,9 @@
           border-radius: 5px;
           position: relative;
           cursor: pointer;
+          @include smaller-mobile {
+            display: none;
+          }
           &:checked {
             border: 0;
             background-color: $PurplishBlue;
@@ -75,6 +84,9 @@
             @include mobile {
               font-size: 15px;
             }
+            @include smaller-mobile {
+              font-size: 14px;
+            }
           }
           .third-step-add-ons-btn-under-heading-text {
             font-size: 15px;
@@ -84,6 +96,9 @@
             @include mobile {
               font-size: 14px;
             }
+            @include smaller-mobile {
+              font-size: 13px;
+            }
           }
         }
       }
@@ -92,6 +107,9 @@
           font-size: 14.5px;
           color: $PurplishBlue;
           font-weight: 400;
+          @include smaller-mobile {
+            font-size: 13px;
+          }
         }
       }
     }

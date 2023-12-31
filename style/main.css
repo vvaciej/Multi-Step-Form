@@ -60,6 +60,11 @@
   color: hsl(231, 11%, 63%);
   font-weight: 500;
 }
+@media (max-width: 576px) {
+  .first-step-div .first-step-form-section form .first-step-input-section .first-step-input {
+    width: 100%;
+  }
+}
 .first-step-div .first-step-form-section form .first-step-input-section .first-step-input.error {
   border: 1px solid hsl(354, 84%, 57%);
 }
@@ -249,6 +254,11 @@
     padding: 15px;
   }
 }
+@media (max-width: 355px) {
+  .third-step-div .third-step-add-ons-section .third-step-add-ons-btn {
+    padding: 10px;
+  }
+}
 .third-step-div .third-step-add-ons-section .third-step-add-ons-btn:hover {
   border: 1px solid hsl(243, 100%, 62%);
 }
@@ -270,6 +280,12 @@
          column-gap: 13px;
   }
 }
+@media (max-width: 355px) {
+  .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-leftside {
+    -moz-column-gap: 10px;
+         column-gap: 10px;
+  }
+}
 .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-leftside .third-step-add-ons-checkbox {
   -moz-appearance: none;
        appearance: none;
@@ -281,6 +297,11 @@
   border-radius: 5px;
   position: relative;
   cursor: pointer;
+}
+@media (max-width: 355px) {
+  .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-leftside .third-step-add-ons-checkbox {
+    display: none;
+  }
 }
 .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-leftside .third-step-add-ons-checkbox:checked {
   border: 0;
@@ -314,6 +335,11 @@
     font-size: 15px;
   }
 }
+@media (max-width: 355px) {
+  .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-leftside .third-step-add-ons-btn-middle-text .third-step-add-ons-btn-heading-text {
+    font-size: 14px;
+  }
+}
 .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-leftside .third-step-add-ons-btn-middle-text .third-step-add-ons-btn-under-heading-text {
   font-size: 15px;
   color: hsl(231, 11%, 63%);
@@ -325,10 +351,20 @@
     font-size: 14px;
   }
 }
+@media (max-width: 355px) {
+  .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-leftside .third-step-add-ons-btn-middle-text .third-step-add-ons-btn-under-heading-text {
+    font-size: 13px;
+  }
+}
 .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-rightside .third-step-add-ons-btn-rightside-price-text {
   font-size: 14.5px;
   color: hsl(243, 100%, 62%);
   font-weight: 400;
+}
+@media (max-width: 355px) {
+  .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-rightside .third-step-add-ons-btn-rightside-price-text {
+    font-size: 13px;
+  }
 }
 .third-step-div .third-step-add-ons-section .third-step-add-ons-btn.chosen {
   border: 1px solid hsl(243, 100%, 62%);
@@ -730,6 +766,12 @@ body .step-form-number.active {
     width: 92%;
     margin-top: 90px;
     margin-bottom: 100px;
+  }
+}
+@media (max-width: 355px) {
+  .container {
+    width: 94%;
+    padding: 30px 0px;
   }
 }
 

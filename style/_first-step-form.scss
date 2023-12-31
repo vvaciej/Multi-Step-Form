@@ -52,6 +52,9 @@
             color: $CoolGray;
             font-weight: 500;
           }
+          @include mobile {
+            width: 100%;
+          }
         }
         .first-step-input.error {
           border: 1px solid $StrawberryRed;
