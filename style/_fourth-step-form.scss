@@ -8,6 +8,9 @@
     background-color: #f6f6f6;
     border-radius: 8px;
     padding: 22px;
+    @include smaller-mobile {
+      padding: 10px;
+    }
     .fourth-step-summary-topside-section {
       display: flex;
       align-items: center;
@@ -22,12 +25,18 @@
             font-size: 15.5px;
             margin-bottom: 5px;
           }
+          @include smaller-mobile {
+            font-size: 14.5px;
+          }
         }
         .fourth-step-summary-topside-change-link {
           font-size: 14px;
           color: $CoolGray;
           font-weight: 500;
           text-decoration-thickness: 2px;
+          @include smaller-mobile {
+            font-size: 13px;
+          }
           &:hover {
             color: $PurplishBlue;
             @include smaller-tablet {
@@ -42,6 +51,9 @@
         font-weight: 600;
         @include mobile {
           font-size: 16px;
+        }
+        @include smaller-mobile {
+          font-size: 14.5px;
         }
       }
     }
@@ -71,6 +83,9 @@
           @include mobile {
             font-size: 14.5px;
           }
+          @include smaller-mobile {
+            font-size: 14px;
+          }
         }
         .fourth-step-summary-bottomside-right-price-text {
           font-size: 15px;
@@ -78,6 +93,9 @@
           font-weight: 500;
           @include mobile {
             font-size: 14px;
+          }
+          @include smaller-mobile {
+            font-size: 13.5px;
           }
         }
       } 
@@ -101,6 +119,9 @@
       @include mobile {
         font-size: 14.5px;
       }
+      @include smaller-mobile {
+        font-size: 14px;
+      }
     }
     .fourth-step-summary-footer-total-price-text {
       font-size: 22px;
@@ -108,6 +129,9 @@
       font-weight: 600;
       @include mobile {
         font-size: 18px;
+      }
+      @include smaller-mobile {
+        font-size: 16px;
       }
     }
   }

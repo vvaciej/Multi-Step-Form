@@ -6,12 +6,22 @@
   &:not(.active) {
     display: none;
   }
+  @include mobile {
+    height: auto;
+  }
   .first-step-form-section {
     form {
       display: flex;
       flex-direction: column;
-      height: 270px;
+      height: max-content;
+      row-gap: 30px;
       justify-content: space-between;
+      @include mobile {
+        row-gap: 22px;
+      }
+      @include smaller-mobile {
+        row-gap: 15px;
+      }
       .first-step-input-section {
         display: flex;
         flex-direction: column;

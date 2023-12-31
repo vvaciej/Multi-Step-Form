@@ -19,6 +19,10 @@
     height: 48px;
     width: 120px;
     border-radius: 6px;
+    @include smaller-mobile {
+      width: 83px;
+      font-size: 14px;
+    }
   }
   .step-aside-next-btn {
     background-color: $MarineBlue;
@@ -54,6 +58,9 @@
     &:not(.active) {
       opacity: 0;
       visibility: hidden;
+    }
+    @include smaller-mobile {
+      font-size: 14px;
     }
   }
 }
