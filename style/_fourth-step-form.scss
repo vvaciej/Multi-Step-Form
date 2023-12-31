@@ -30,6 +30,9 @@
           text-decoration-thickness: 2px;
           &:hover {
             color: $PurplishBlue;
+            @include smaller-tablet {
+              color: $CoolGray;
+            }
           }
         }
       }

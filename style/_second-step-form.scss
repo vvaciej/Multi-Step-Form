@@ -23,6 +23,7 @@
         font-weight: 600;
         height: 190px;
         width: 100%;
+        touch-action: none;
         @include mobile {
           height: max-content;
           padding-top: 18px;
@@ -102,6 +103,7 @@
         border-radius: 45px;
         background-color: $MarineBlue;
         position: relative;
+        touch-action: none;
         cursor: pointer;
         &:after {
           content: '';

@@ -90,6 +90,7 @@
   font-weight: 600;
   height: 190px;
   width: 100%;
+  touch-action: none;
 }
 @media (max-width: 576px) {
   .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn {
@@ -189,6 +190,7 @@
   border-radius: 45px;
   background-color: hsl(213, 96%, 18%);
   position: relative;
+  touch-action: none;
   cursor: pointer;
 }
 .second-step-div .second-step-plan-section .second-step-toggle-section .second-step-toggle-switch:after {
@@ -249,6 +251,11 @@
 }
 .third-step-div .third-step-add-ons-section .third-step-add-ons-btn:hover {
   border: 1px solid hsl(243, 100%, 62%);
+}
+@media (max-width: 825px) {
+  .third-step-div .third-step-add-ons-section .third-step-add-ons-btn:hover {
+    border: 1px solid transparent;
+  }
 }
 .third-step-div .third-step-add-ons-section .third-step-add-ons-btn .third-step-add-ons-btn-leftside {
   display: flex;
@@ -366,6 +373,11 @@
 }
 .fourth-step-div .fourth-step-summary-section .fourth-step-summary-topside-section .fourth-step-summary-topside-leftside-section .fourth-step-summary-topside-change-link:hover {
   color: hsl(243, 100%, 62%);
+}
+@media (max-width: 825px) {
+  .fourth-step-div .fourth-step-summary-section .fourth-step-summary-topside-section .fourth-step-summary-topside-leftside-section .fourth-step-summary-topside-change-link:hover {
+    color: hsl(231, 11%, 63%);
+  }
 }
 .fourth-step-div .fourth-step-summary-section .fourth-step-summary-topside-section .fourth-step-summary-topside-rightside-price-text {
   font-size: 17px;
@@ -698,7 +710,6 @@ body .step-form-number.active {
   padding: 16px;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.05);
   display: flex;
-  touch-action: none;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;

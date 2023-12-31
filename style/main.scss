@@ -116,7 +116,6 @@ body {
   padding: 16px;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.05);
   display: flex;
-  touch-action: none;
   user-select: none;
   @include smaller-tablet {
     height: 38rem;

@@ -24,6 +24,9 @@
       }
       &:hover {
         border: 1px solid $PurplishBlue;
+        @include smaller-tablet {
+          border: 1px solid transparent;
+        }
       }
       .third-step-add-ons-btn-leftside {
         display: flex;
