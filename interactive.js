@@ -36,7 +36,6 @@ function checkEmptyInputs() {
 
 function checkFullName() {
   const nameInput = firstStepInput[0];
-  const nameError = firstStepErrorText[0];
 	const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+$/g;
 	const wordDivided = nameInput.value.split(' ');
 	let newString = '';
@@ -48,12 +47,10 @@ function checkFullName() {
 
 	if (!nameRegex.test(nameInput.value)) {
 		nameInput.classList.add('error');
-		nameError.classList.add('error');
 
 		isFirstStepValid = false;
 	} else {
 		nameInput.classList.remove('error');
-		nameError.classList.remove('error');
 	}
 
 	nameInput.value = newString;
