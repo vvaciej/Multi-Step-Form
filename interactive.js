@@ -13,7 +13,7 @@ let actualStepMobile = 0;
 
 let actualStepContainer = 1;
 
-// first step section
+/* ----------------------- First Step ----------------------- */
 const firstStepInput = document.querySelectorAll('.first-step-input');
 const firstStepErrorText = document.querySelectorAll('.first-step-error-text');
 
@@ -131,7 +131,7 @@ firstStepInput.forEach((input, index) => {
 		}
 	});
 });
-// second step section
+/* ----------------------- Second Step ----------------------- */
 const secondStepToggleSwitch = document.querySelector('.second-step-toggle-switch');
 const secondStepPriceTextSwitch = document.querySelectorAll('.second-step-toggle-text');
 const secondStepPriceText = document.querySelectorAll('.second-step-plan-price-text');
@@ -245,7 +245,7 @@ function afterSecondValidity() {
 		thirdStepChangePrice();
 	}
 }
-// third step section
+/* ----------------------- Third Step ----------------------- */
 function thirdStepChangePrice() {
 	const stepPrice = document.querySelectorAll('.third-step-add-ons-btn-rightside-price-text');
 	const forYearlyPlan = secondStepToggleSwitch.classList.contains('switched');
@@ -290,7 +290,7 @@ function afterThirdValidity() {
 	fourthStepSummary();
 }
 
-// fourth steps section
+/* ----------------------- Fourth Step ----------------------- */
 function whatPlanChosen() {
   let chosenPlan = null;
   
@@ -442,7 +442,7 @@ confirmBtn.addEventListener('click', function () {
     fiveStepDiv.classList.add('active');
   }
 });
-// all steps section
+/* ----------------------- For All Steps ----------------------- */
 submitBtn.addEventListener('click', () => {
 	switch (actualStepContainer) {
 		case 1:
