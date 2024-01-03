@@ -14,11 +14,110 @@ let actualStepMobile = 0;
 let actualStepContainer = 1;
 
 // first step section
-
 const firstStepInput = document.querySelectorAll('.first-step-input');
 const firstStepErrorText = document.querySelectorAll('.first-step-error-text');
 
-import { firstStepCheckValidity } from "./first-step-validity.js";
+let isFirstStepValid = true;
+
+function checkEmptyInputs() {
+	firstStepInput.forEach((input, index) => {
+		const inputValue = input.value.trim();
+
+		if (inputValue === '') {
+			input.classList.add('error');
+			firstStepErrorText[index].classList.add('error');
+			isFirstStepValid = false;
+		} else {
+			input.classList.remove('error');
+			firstStepErrorText[index].classList.remove('error');
+		}
+	});
+}
+
+function checkFullName() {
+  const nameInput = firstStepInput[0];
+	const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+$/g;
+	const wordDivided = nameInput.value.split(' ');
+	let newString = '';
+
+	for (let i = 0; i < wordDivided.length; i++) {
+		newString += wordDivided[i].charAt(0).toUpperCase() + wordDivided[i].slice(1) + ' ';
+	}
+	newString = newString.slice(0, -1);
+
+	if (!nameRegex.test(nameInput.value)) {
+		nameInput.classList.add('error');
+
+		isFirstStepValid = false;
+	} else {
+		nameInput.classList.remove('error');
+	}
+
+	nameInput.value = newString;
+}
+
+function checkEmail() {
+  const emailInput = firstStepInput[1];
+	const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/g;
+
+	if (!emailRegex.test(emailInput.value)) {
+		emailInput.classList.add('error');
+
+		isFirstStepValid = false;
+	} else {
+		emailInput.classList.remove('error');
+	}
+}
+
+function checkPhoneNumber() {
+  const phoneInput = firstStepInput[2];
+	const phoneRegex = /^[0-9]{9}$/g;
+	phoneInput.value = phoneInput.value.replace(/ /g, '');
+
+	if (!phoneRegex.test(phoneInput.value)) {
+		phoneInput.classList.add('error');
+
+		isFirstStepValid = false;
+	} else {
+		phoneInput.classList.remove('error');
+	}
+}
+
+function firstStepCheckValidity() {
+	isFirstStepValid = true;
+
+	checkEmptyInputs();
+	checkFullName();
+	checkEmail();
+	checkPhoneNumber();
+
+	return isFirstStepValid;
+}
+
+function afterValidity() {
+	actualStepDesktop++;
+	numberOfStepDesktop[actualStepDesktop].classList.add('active');
+	numberOfStepDesktop[actualStepDesktop - 1].classList.remove('active');
+
+	actualStepMobile++;
+	numberOfStepMobile[actualStepMobile].classList.add('active');
+	numberOfStepMobile[actualStepMobile - 1].classList.remove('active');
+
+	actualStepContainer++;
+}
+
+function afterFirstValidity() {
+	const checkValidity = firstStepCheckValidity();
+
+	if (checkValidity && isFirstStepValid) {
+    afterValidity();
+
+		firstStepDiv.classList.remove('active');
+		secondStepDiv.classList.add('active');
+
+		goBackBtn.classList.add('active');
+	}
+}
 
 firstStepInput.forEach((input, index) => {
 	input.addEventListener('keydown', e => {
@@ -26,30 +125,59 @@ firstStepInput.forEach((input, index) => {
 			input.classList.remove('error');
 			firstStepErrorText[index].classList.remove('error');
 		}
-		
+
 		if (e.key === 'Enter') {
 			afterFirstValidity();
 		}
 	});
 });
-
-function afterFirstValidity() {
-	const checkValidity = firstStepCheckValidity();
-	
-	if (checkValidity) {
-		afterValidity();
-		
-		firstStepDiv.classList.remove('active');
-		secondStepDiv.classList.add('active');
-		
-		goBackBtn.classList.add('active');
-	}
-}
-
 // second step section
 const secondStepToggleSwitch = document.querySelector('.second-step-toggle-switch');
+const secondStepPriceTextSwitch = document.querySelectorAll('.second-step-toggle-text');
+const secondStepPriceText = document.querySelectorAll('.second-step-plan-price-text');
 
-import { secondStepToggleSwitcher } from "./second-step-toggle-switcher.js";
+const secondStepSwitchText = {
+  monthly: secondStepPriceTextSwitch[0],
+  yearly: secondStepPriceTextSwitch[1],
+}
+const secondStepPriceTextSource = {
+  arcade: secondStepPriceText[0],
+  pro: secondStepPriceText[1],
+  advanced: secondStepPriceText[2],
+}
+
+function secondStepToggleSwitcher() {
+	const yearlyPrice = document.querySelectorAll('.second-step-choose-yearly-text');
+
+	secondStepToggleSwitch.classList.toggle('switched');
+
+	if (secondStepToggleSwitch.classList.contains('switched')) {
+		yearlyPrice.forEach(yearly => {
+			yearly.classList.add('active');
+		});
+    secondStepPriceTextSource.arcade.textContent = '$90/yr';
+    secondStepPriceTextSource.pro.textContent = '$120/yr';
+    secondStepPriceTextSource.advanced.textContent = '$150/yr';
+
+		for (const key in secondStepSwitchText) {
+      secondStepSwitchText[key].classList.toggle('active');
+    }
+	} else {
+		yearlyPrice.forEach(yearly => {
+			yearly.classList.remove('active');
+		});
+    secondStepPriceTextSource.arcade.textContent = '$9/mo';
+    secondStepPriceTextSource.pro.textContent = '$12/mo';
+    secondStepPriceTextSource.advanced.textContent = '$15/mo';
+
+		for (const key in switchText) {
+      secondStepSwitchText[key].classList.toggle('active');
+		}
+	}
+
+  thirdStepChangePrice();
+  fourthStepSummary();
+}
 
 secondStepToggleSwitch.addEventListener('click', secondStepToggleSwitcher);
 
@@ -58,10 +186,10 @@ let chosenPlanIndex = null;
 
 function secondStepChoosePlan(e) {
 	const clickedPlan = e.currentTarget;
-	
+
 	secondStepChooseBtn.forEach((btn, index) => {
 		const clickedPlanContainsClass = clickedPlan.classList.contains('chosen');
-		
+
 		if (clickedPlan === btn && !clickedPlanContainsClass) {
 			if (chosenPlanIndex !== null) {
 				secondStepChooseBtn[chosenPlanIndex].classList.remove('chosen');
@@ -74,7 +202,7 @@ function secondStepChoosePlan(e) {
 			chosenPlanIndex = null;
 		}
 	});
-	
+
 	return chosenPlanIndex;
 }
 
@@ -87,33 +215,33 @@ secondStepChooseBtn.forEach(btn => {
 
 function secondStepCheckValidity() {
 	let isSecondStepValid = true;
-	
+
 	if (chosenPlanIndex === null) {
 		secondStepChooseBtn.forEach(btn => {
 			btn.classList.add('error');
 		});
-		
+
 		setTimeout(() => {
 			secondStepChooseBtn.forEach(btn => {
 				btn.classList.remove('error');
 			});
 		}, 400);
-		
+
 		isSecondStepValid = false;
 	}
-	
+
 	return isSecondStepValid;
 }
 
 function afterSecondValidity() {
-	const isSecondStepValid = secondStepCheckValidity();
-	
+  const isSecondStepValid = secondStepCheckValidity();
+
 	if (isSecondStepValid) {
 		afterValidity();
-		
+
 		secondStepDiv.classList.remove('active');
 		thirdStepDiv.classList.add('active');
-		
+
 		thirdStepChangePrice();
 	}
 }
@@ -121,13 +249,13 @@ function afterSecondValidity() {
 function thirdStepChangePrice() {
 	const stepPrice = document.querySelectorAll('.third-step-add-ons-btn-rightside-price-text');
 	const forYearlyPlan = secondStepToggleSwitch.classList.contains('switched');
-	
+
 	const addOnPrice = {
 		onlineService: forYearlyPlan ? '+$10/yr' : '+$1/mo',
 		largerStorage: forYearlyPlan ? '+$20/yr' : '+$2/mo',
 		customizableProfile: forYearlyPlan ? '+$20/yr' : '+$2/mo',
 	};
-	
+
 	stepPrice[0].textContent = addOnPrice.onlineService; // textContent for Online Service Btn
 	stepPrice[1].textContent = addOnPrice.largerStorage; // textContent for Larger Storage Btn
 	stepPrice[2].textContent = addOnPrice.customizableProfile; // textContent for Customizable Profile Btn
@@ -136,12 +264,12 @@ function thirdStepChangePrice() {
 const thirdStepAddOnsBtn = document.querySelectorAll('.third-step-add-ons-btn');
 
 function thirdStepChooseAddOns(e) {
-	const clickedAddOn = e.currentTarget;
+  const clickedAddOn = e.currentTarget;
 	const checkboxEl = clickedAddOn.querySelector('.third-step-add-ons-checkbox');
-	
+
 	if (checkboxEl.checked) clickedAddOn.classList.add('chosen');
 	else clickedAddOn.classList.remove('chosen');
-	
+
 	updateAddOns();
   fourthStepSummary();
 }
@@ -151,7 +279,7 @@ thirdStepAddOnsBtn.forEach(btn => {
 });
 
 function afterThirdValidity() {
-	afterValidity();
+  afterValidity();
   
 	thirdStepDiv.classList.remove('active');
 	fourthStepDiv.classList.add('active');
@@ -164,17 +292,17 @@ function afterThirdValidity() {
 
 // fourth steps section
 function whatPlanChosen() {
-	let chosenPlan = null;
+  let chosenPlan = null;
   
 	secondStepChooseBtn.forEach(btn => {
-		const checkIfBtnChosen = btn.classList.contains('chosen');
+    const checkIfBtnChosen = btn.classList.contains('chosen');
     
 		if (checkIfBtnChosen && btn.classList.contains('arcade')) {
-			chosenPlan = 'Arcade';
+      chosenPlan = 'Arcade';
 		} else if (checkIfBtnChosen && btn.classList.contains('pro')) {
-			chosenPlan = 'Pro';
+      chosenPlan = 'Pro';
 		} else if (checkIfBtnChosen && btn.classList.contains('advanced')) {
-			chosenPlan = 'Advanced';
+      chosenPlan = 'Advanced';
 		}
 	});
   
@@ -187,25 +315,25 @@ function whatPriceOfPlan() {
   const forYearlyPlan = secondStepToggleSwitch.classList.contains('switched');
   
 	if (!forYearlyPlan) {
-		chosenPlan === 'Arcade' ? chosenPlanPrice = 9 : null;
-		chosenPlan === 'Advanced' ? chosenPlanPrice = 12 : null;
-		chosenPlan === 'Pro' ? chosenPlanPrice = 15 : null;
+    chosenPlan === 'Arcade' ? chosenPlanPrice = 9 : null;
+		chosenPlan === 'Pro' ? chosenPlanPrice = 12 : null;
+		chosenPlan === 'Advanced' ? chosenPlanPrice = 15 : null;
 	} else if (forYearlyPlan) {
-		chosenPlan === 'Arcade' ? chosenPlanPrice = 90 : null;
-		chosenPlan === 'Advanced' ? chosenPlanPrice = 120 : null;
-		chosenPlan === 'Pro' ? chosenPlanPrice = 150 : null;
+    chosenPlan === 'Arcade' ? chosenPlanPrice = 90 : null;
+		chosenPlan === 'Pro' ? chosenPlanPrice = 120 : null;
+		chosenPlan === 'Advanced' ? chosenPlanPrice = 150 : null;
 	}
   
 	return chosenPlanPrice;
 }
 
 function updateAddOns() {
-	const checkboxEl = document.querySelectorAll('.third-step-add-ons-checkbox');
+  const checkboxEl = document.querySelectorAll('.third-step-add-ons-checkbox');
 	const addOnsArr = new Set();
   
 	checkboxEl.forEach(el => {
-		if (el.checked) {
-			const addOnName = el.dataset.addon;
+    if (el.checked) {
+      const addOnName = el.dataset.addon;
 			addOnsArr.add(addOnName);
 		}
 	});
@@ -214,16 +342,16 @@ function updateAddOns() {
 }
 
 const addOnsSectionSource = {
-	onlineService: document.querySelector('.online-service-section'),
+  onlineService: document.querySelector('.online-service-section'),
   largerStorage: document.querySelector('.larger-storage-section'),
   customizableProfile: document.querySelector('.customizable-profile-section'),
 };
 
 function calcAddOnsPrice() {
-	let addOnsTotalPrice = 0;
+  let addOnsTotalPrice = 0;
   
 	const addOnsPriceSource = {
-		onlineService: document.querySelector('.online-service-price'),
+    onlineService: document.querySelector('.online-service-price'),
 		largerStorage: document.querySelector('.larger-storage-price'),
 		customizableProfile: document.querySelector('.customizable-profile-price'),
 	};
@@ -232,15 +360,15 @@ function calcAddOnsPrice() {
 	const monthOrYear = forYearlyPlan ? 'yr' : 'mo';
   
 	if (addOnsSectionSource.onlineService.classList.contains('active')) {
-		addOnsPriceSource.onlineService.textContent = `+$${forYearlyPlan ? '10' : '1'}/${monthOrYear}`;
+    addOnsPriceSource.onlineService.textContent = `+$${forYearlyPlan ? '10' : '1'}/${monthOrYear}`;
 		addOnsTotalPrice += forYearlyPlan ? 10 : 1;
 	}
 	if (addOnsSectionSource.largerStorage.classList.contains('active')) {
-		addOnsPriceSource.largerStorage.textContent = `+$${forYearlyPlan ? '20' : '2'}/${monthOrYear}`;
+    addOnsPriceSource.largerStorage.textContent = `+$${forYearlyPlan ? '20' : '2'}/${monthOrYear}`;
 		addOnsTotalPrice += forYearlyPlan ? 20 : 2;
 	}
 	if (addOnsSectionSource.customizableProfile.classList.contains('active')) {
-		addOnsPriceSource.customizableProfile.textContent = `+$${forYearlyPlan ? '20' : '2'}/${monthOrYear}`;
+    addOnsPriceSource.customizableProfile.textContent = `+$${forYearlyPlan ? '20' : '2'}/${monthOrYear}`;
 		addOnsTotalPrice += forYearlyPlan ? 20 : 2;
 	}
   
@@ -252,9 +380,9 @@ function executeFunctionsForSummary () {
 	const chosenPlanPrice = whatPriceOfPlan();
 	const addOnsArr = updateAddOns();
 	const addOnsTotalPrice = calcAddOnsPrice();
-	
+
   return {
-		chosenPlan,
+    chosenPlan,
     chosenPlanPrice,
     addOnsArr,
     addOnsTotalPrice,
@@ -262,27 +390,27 @@ function executeFunctionsForSummary () {
 }
 
 function fourthStepSummary(e) {
-	const totalText = document.querySelector('.fourth-step-summary-footer-leftside-text');
+  const totalText = document.querySelector('.fourth-step-summary-footer-leftside-text');
 	const totalTextPrice = document.querySelector('.fourth-step-summary-footer-total-price-text');
   const placeForAddOns = document.querySelector('.fourth-step-summary-topside-section');
   const paddingForAddOns = document.querySelector('.fourth-step-summary-bottomside-section');
 	const planPrice = document.querySelector('.fourth-step-summary-topside-rightside-price-text');
 	const planText = document.querySelector('.fourth-step-summary-topside-heading-text');
-	
+
   const forYearlyPlan = secondStepToggleSwitch.classList.contains('switched');
   const monthOrYear = forYearlyPlan ? 'yr' : 'mo';
   
   const {chosenPlan, chosenPlanPrice, addOnsArr, addOnsTotalPrice} = executeFunctionsForSummary();
-	
+
   let isAnyAddOnPresent = false;
   
 	for (const key in addOnsSectionSource) {
-		const isAddonActive = addOnsArr.has(key);
+    const isAddonActive = addOnsArr.has(key);
     addOnsSectionSource[key].classList.toggle('active', isAddonActive);
-		
+
     if (isAddonActive) isAnyAddOnPresent = true;
 	}
-	
+
   placeForAddOns.classList.toggle('added', isAnyAddOnPresent);
 	paddingForAddOns.classList.toggle('added', isAnyAddOnPresent);
   
@@ -297,7 +425,7 @@ function fourthStepSummary(e) {
 }
 
 function afterFourthValidity() {
-	fourthStepDiv.classList.remove('active');
+  fourthStepDiv.classList.remove('active');
 	fiveStepDiv.classList.add('active');
   
 	updateAddOns();
@@ -306,10 +434,10 @@ function afterFourthValidity() {
 const confirmBtn = document.querySelector('.step-aside-confirm-btn');
 
 confirmBtn.addEventListener('click', function () {
-	if (actualStepContainer === 4) {
-		confirmBtn.classList.remove('active');
+  if (actualStepContainer === 4) {
+    confirmBtn.classList.remove('active');
     goBackBtn.classList.remove('active');
-		
+
     fourthStepDiv.classList.remove('active');
     fiveStepDiv.classList.add('active');
   }
@@ -345,42 +473,31 @@ function changeDisplayingActualStep() {
 }
 
 goBackBtn.addEventListener('click', () => {
-	switch (actualStepContainer) {
-		case 2:
-			secondStepDiv.classList.remove('active');
-			firstStepDiv.classList.add('active');
-		break;
-		case 3:
-			thirdStepDiv.classList.remove('active');
-			secondStepDiv.classList.add('active');
-			break;
-		case 4:
-			fourthStepDiv.classList.remove('active');
-			thirdStepDiv.classList.add('active');
-
-			submitBtn.classList.add('active');
-			confirmBtn.classList.remove('active');
-			break;
-		case 5:
-			fiveStepDiv.classList.remove('active');
-			fourthStepDiv.classList.add('active');
-			break;
-	}
-
-	actualStepContainer--;
-	changeDisplayingActualStep();
-
-	updateAddOns();
-	fourthStepSummary();
+  switch (actualStepContainer) {
+    case 2:
+      secondStepDiv.classList.remove('active');
+      firstStepDiv.classList.add('active');
+      break;
+    case 3:
+      thirdStepDiv.classList.remove('active');
+      secondStepDiv.classList.add('active');
+      break;
+    case 4:
+      fourthStepDiv.classList.remove('active');
+      thirdStepDiv.classList.add('active');
+  
+      submitBtn.classList.add('active');
+      confirmBtn.classList.remove('active');
+      break;
+    case 5:
+      fiveStepDiv.classList.remove('active');
+      fourthStepDiv.classList.add('active');
+      break;
+  }
+  
+  actualStepContainer--;
+  changeDisplayingActualStep();
+  
+  updateAddOns();
+  fourthStepSummary();
 });
-function afterValidity() {
-	actualStepDesktop++;
-	numberOfStepDesktop[actualStepDesktop].classList.add('active');
-	numberOfStepDesktop[actualStepDesktop - 1].classList.remove('active');
-
-	actualStepMobile++;
-	numberOfStepMobile[actualStepMobile].classList.add('active');
-	numberOfStepMobile[actualStepMobile - 1].classList.remove('active');
-
-	actualStepContainer++;
-}
