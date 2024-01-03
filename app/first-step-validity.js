@@ -1,6 +1,8 @@
 const firstStepInput = document.querySelectorAll('.first-step-input');
 const firstStepErrorText = document.querySelectorAll('.first-step-error-text');
 
+let isFirstStepValid = true;
+
 function checkEmptyInputs() {
 	firstStepInput.forEach((input, index) => {
 		const inputValue = input.value.trim();
@@ -66,7 +68,7 @@ function checkPhoneNumber() {
 }
 
 export function firstStepCheckValidity() {
-	let isFirstStepValid = true;
+	isFirstStepValid = true;
 
 	checkEmptyInputs();
 	checkFullName();

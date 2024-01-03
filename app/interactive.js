@@ -229,12 +229,12 @@ function whatPriceOfPlan() {
   
 	if (!forYearlyPlan) {
     chosenPlan === 'Arcade' ? chosenPlanPrice = 9 : null;
-		chosenPlan === 'Pro' ? chosenPlanPrice = 12 : null;
-		chosenPlan === 'Advanced' ? chosenPlanPrice = 15 : null;
+		chosenPlan === 'Advanced' ? chosenPlanPrice = 12 : null;
+		chosenPlan === 'Pro' ? chosenPlanPrice = 15 : null;
 	} else if (forYearlyPlan) {
     chosenPlan === 'Arcade' ? chosenPlanPrice = 90 : null;
-		chosenPlan === 'Pro' ? chosenPlanPrice = 120 : null;
-		chosenPlan === 'Advanced' ? chosenPlanPrice = 150 : null;
+		chosenPlan === 'Advanced' ? chosenPlanPrice = 120 : null;
+		chosenPlan === 'Pro' ? chosenPlanPrice = 150 : null;
 	}
   
 	return chosenPlanPrice;
