@@ -72,9 +72,6 @@ export function firstStepCheckValidity() {
 	checkFullName();
 	checkEmail();
 	checkPhoneNumber();
-
-
-	console.log('5');
 	
 	return isFirstStepValid;
 }

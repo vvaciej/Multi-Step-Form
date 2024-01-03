@@ -17,99 +17,12 @@ let actualStepContainer = 1;
 const firstStepInput = document.querySelectorAll('.first-step-input');
 const firstStepErrorText = document.querySelectorAll('.first-step-error-text');
 
-let isFirstStepValid = true;
-
-function checkEmptyInputs() {
-	firstStepInput.forEach((input, index) => {
-		const inputValue = input.value.trim();
-
-		if (inputValue === '') {
-			input.classList.add('error');
-			firstStepErrorText[index].classList.add('error');
-			isFirstStepValid = false;
-		} else {
-			input.classList.remove('error');
-			firstStepErrorText[index].classList.remove('error');
-		}
-	});
-}
-
-function checkFullName() {
-  const nameInput = firstStepInput[0];
-	const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+$/g;
-	const wordDivided = nameInput.value.split(' ');
-	let newString = '';
-
-	for (let i = 0; i < wordDivided.length; i++) {
-		newString += wordDivided[i].charAt(0).toUpperCase() + wordDivided[i].slice(1) + ' ';
-	}
-	newString = newString.slice(0, -1);
-
-	if (!nameRegex.test(nameInput.value)) {
-		nameInput.classList.add('error');
-
-		isFirstStepValid = false;
-	} else {
-		nameInput.classList.remove('error');
-	}
-
-	nameInput.value = newString;
-}
-
-function checkEmail() {
-  const emailInput = firstStepInput[1];
-	const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/g;
-
-	if (!emailRegex.test(emailInput.value)) {
-		emailInput.classList.add('error');
-
-		isFirstStepValid = false;
-	} else {
-		emailInput.classList.remove('error');
-	}
-}
-
-function checkPhoneNumber() {
-  const phoneInput = firstStepInput[2];
-	const phoneRegex = /^[0-9]{9}$/g;
-	phoneInput.value = phoneInput.value.replace(/ /g, '');
-
-	if (!phoneRegex.test(phoneInput.value)) {
-		phoneInput.classList.add('error');
-
-		isFirstStepValid = false;
-	} else {
-		phoneInput.classList.remove('error');
-	}
-}
-
-function firstStepCheckValidity() {
-	isFirstStepValid = true;
-
-	checkEmptyInputs();
-	checkFullName();
-	checkEmail();
-	checkPhoneNumber();
-
-	return isFirstStepValid;
-}
-
-function afterValidity() {
-	actualStepDesktop++;
-	numberOfStepDesktop[actualStepDesktop].classList.add('active');
-	numberOfStepDesktop[actualStepDesktop - 1].classList.remove('active');
-
-	actualStepMobile++;
-	numberOfStepMobile[actualStepMobile].classList.add('active');
-	numberOfStepMobile[actualStepMobile - 1].classList.remove('active');
-
-	actualStepContainer++;
-}
+import { firstStepCheckValidity } from "./first-step-validity.js";
 
 function afterFirstValidity() {
 	const checkValidity = firstStepCheckValidity();
 
-	if (checkValidity && isFirstStepValid) {
+	if (checkValidity) {
     afterValidity();
 
 		firstStepDiv.classList.remove('active');
@@ -443,6 +356,18 @@ confirmBtn.addEventListener('click', function () {
   }
 });
 /* ----------------------- For All Steps ----------------------- */
+function afterValidity() {
+	actualStepDesktop++;
+	numberOfStepDesktop[actualStepDesktop].classList.add('active');
+	numberOfStepDesktop[actualStepDesktop - 1].classList.remove('active');
+
+	actualStepMobile++;
+	numberOfStepMobile[actualStepMobile].classList.add('active');
+	numberOfStepMobile[actualStepMobile - 1].classList.remove('active');
+
+	actualStepContainer++;
+}
+
 submitBtn.addEventListener('click', () => {
 	switch (actualStepContainer) {
 		case 1:
