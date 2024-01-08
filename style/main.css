@@ -129,6 +129,9 @@
   width: 100%;
   touch-action: none;
 }
+.second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn .second-step-plan-icon {
+  width: 40px;
+}
 @media (max-width: 576px) {
   .second-step-div .second-step-plan-section .second-step-choose-plan-section .second-step-choose-plan-btn {
     height: -moz-max-content;
