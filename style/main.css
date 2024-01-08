@@ -831,9 +831,6 @@ html button {
   cursor: pointer;
   font-family: "Ubuntu", sans-serif;
 }
-html button:hover {
-  outline: 0;
-}
 
 body {
   height: 100%;
