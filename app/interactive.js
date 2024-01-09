@@ -103,17 +103,15 @@ function secondStepChoosePlan(e) {
 	secondStepChooseBtn.forEach((btn, index) => {
 		const clickedPlanContainsClass = clickedPlan.classList.contains('chosen');
 
+		btn.classList.remove('chosen');
 		if (clickedPlan === btn && !clickedPlanContainsClass) {
-			if (chosenPlanIndex !== null) {
-				secondStepChooseBtn[chosenPlanIndex].classList.remove('chosen');
-			}
-      
+			
 			btn.classList.add('chosen');
 			chosenPlanIndex = index;
 		} else if (clickedPlan === btn && clickedPlanContainsClass) {
 			btn.classList.remove('chosen');
 			chosenPlanIndex = null;
-		}
+		}``
 	});
 
 	return chosenPlanIndex;
