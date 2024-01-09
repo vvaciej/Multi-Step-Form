@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="multi-form-project">
+  <meta name="description" content="Multi Step Form Project - Solution for frontend mentor advanced project">
   <link rel="icon" href="/image/icon-thank-you.svg">
   <script src="https://kit.fontawesome.com/b367f4fd12.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style/main.css">
-  <title>Multiform Project</title>
+  <title>Multiform Project - Frontend Mentor</title>
 </head>
 <body>
   <div class="mobile-topside-container">
@@ -20,7 +20,7 @@
     </ul>
   </div>
   <div class="container">
-    <aside class="container-sidebar">
+    <aside class="container-sidebar" role="actual-step-view">
       <section class="aside-step-section">
         <h3 class="step-form-number step-form-number-desktop active">1</h3>
         <section class="aside-form-text-section">
@@ -50,12 +50,12 @@
         </section>
       </section>
     </aside>
-    <main class="container-main">
+    <main class="container-main" role="main content">
       <div class="first-step-div main-step-div active">
-        <header class="step-heading-section">
+        <div class="step-heading-section">
           <h1 class="step-heading-text">Personal info</h1>
           <p class="step-under-heading-text">Please provide your name, email address, and phone number.</p>
-        </header>
+        </div>
         <div class="first-step-form-section">
           <form novalidate>
             <section class="first-step-input-section">
@@ -83,10 +83,10 @@
         </div>
       </div>
       <div class="second-step-div main-step-div">
-        <header class="step-heading-section">
+        <div class="step-heading-section">
           <h1 class="step-heading-text">Selected your plan</h1>
           <p class="step-under-heading-text">You have the option of monthly of yearly billing.</p>
-        </header>
+        </div>
         <div class="second-step-plan-section">
           <section class="second-step-choose-plan-section">
             <div class="second-step-choose-plan-btn arcade">
@@ -199,7 +199,7 @@
         </div>
       </div>
       <div class="five-step-div main-step-div">
-        <img class="five-step-thank-you-img" src="/image/icon-thank-you.svg" alt="thank-you-icon">
+        <img class="five-step-thank-you-img" src="/image/icon-thank-you.svg" alt="Favicon">
         <section class="five-step-text-section">
           <h1 class="five-step-under-heading-text">Thank you!</h1>
           <p class="five-step-under-under-heading-text">
